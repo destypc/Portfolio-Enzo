@@ -1,0 +1,13 @@
+﻿/* =====================================================
+   STYLE.CSS — Manifesto de estilos
+   =====================================================
+   Este arquivo foi reorganizado em módulos separados.
+   Os estilos agora estão divididos em:
+
+   ► base.css        — Variáveis, Reset, Utilitários, Botões
+   ► components.css  — Estilos de cada seção da página
+   ► responsive.css  — Media Queries (tablet, mobile)
+
+   Os três arquivos são carregados diretamente no index.html.
+   Mantenha este arquivo apenas como referência/manifesto.
+   ===================================================== */

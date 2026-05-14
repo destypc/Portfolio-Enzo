@@ -1,0 +1,1057 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enzo | Portfolio</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>"
+    />
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome 6 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- ============================================
+         Estilos organizados em módulos:
+         base.css        → Variáveis, Reset, Utilitários, Botões, Orbs, Grid SVG
+         components.css  → Estilos de cada seção da página
+         animations.css  → Typing, FadeIn, Glow Pulse, Section Reveal
+         responsive.css  → Media Queries (tablet e mobile)
+    ============================================ -->
+    <link rel="stylesheet" href="estilos/base.css" />
+    <link rel="stylesheet" href="estilos/components.css" />
+    <link rel="stylesheet" href="estilos/animations.css" />
+    <link rel="stylesheet" href="estilos/responsive.css" />
+  </head>
+  <body>
+    <!-- ==============================
+         NAVBAR
+    ============================== -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#home" class="nav-logo">Enzo<span>.</span></a>
+
+        <!-- Checkbox trick para hamburger CSS-only -->
+        <input
+          type="checkbox"
+          id="nav-toggle"
+          class="nav-toggle"
+          aria-hidden="true"
+        />
+        <label for="nav-toggle" class="nav-hamburger" aria-label="Abrir menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <ul class="nav-links">
+          <li>
+            <a
+              href="#home"
+              class="nav-link active"
+              onclick="document.getElementById('nav-toggle').checked = false"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#sobre"
+              class="nav-link"
+              onclick="document.getElementById('nav-toggle').checked = false"
+              >Sobre</a
+            >
+          </li>
+          <li>
+            <a
+              href="#projetos"
+              class="nav-link"
+              onclick="document.getElementById('nav-toggle').checked = false"
+              >Projetos</a
+            >
+          </li>
+          <li>
+            <a
+              href="#gostos"
+              class="nav-link"
+              onclick="document.getElementById('nav-toggle').checked = false"
+              >Gostos</a
+            >
+          </li>
+          <li>
+            <a
+              href="#skills"
+              class="nav-link"
+              onclick="document.getElementById('nav-toggle').checked = false"
+              >Skills</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contato"
+              class="nav-link"
+              onclick="document.getElementById('nav-toggle').checked = false"
+              >Contato</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ==============================
+         HERO
+    ============================== -->
+    <section id="home" class="hero">
+      <!-- Grade SVG de fundo -->
+      <svg
+        class="grid-bg"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <pattern
+            id="grid-hero"
+            width="60"
+            height="60"
+            patternUnits="userSpaceOnUse"
+          >
+            <!-- Linhas horizontais -->
+            <line
+              x1="0"
+              y1="0"
+              x2="60"
+              y2="0"
+              stroke="rgba(255,255,255,0.04)"
+              stroke-width="0.7"
+            />
+            <!-- Linhas verticais -->
+            <line
+              x1="0"
+              y1="0"
+              x2="0"
+              y2="60"
+              stroke="rgba(255,255,255,0.04)"
+              stroke-width="0.7"
+            />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid-hero)" />
+      </svg>
+
+      <!-- Orbs decorativos (brilhos atmosféricos) -->
+      <div class="orb orb--hero-tl" aria-hidden="true"></div>
+      <div class="orb orb--hero-br" aria-hidden="true"></div>
+      <div class="orb orb--hero-center" aria-hidden="true"></div>
+
+      <div class="hero-container">
+        <div class="hero-content">
+          <p class="hero-greeting">
+            <i class="fas fa-terminal"></i>&nbsp; Olá, Mundo!
+          </p>
+          <h1 class="hero-title">Sou <span>Enzo</span></h1>
+          <h2 class="hero-subtitle">
+            <span class="hero-subtitle-text">Frontend Developer</span>
+          </h2>
+          <p class="hero-desc">
+            Tenho 14 anos e tô só começando nesse mundo de programação — mas já
+            tô aprendendo de verdade. Crio páginas com HTML, CSS e JavaScript,
+            uma linha de código por vez.
+          </p>
+          <div class="hero-btns">
+            <a href="#contato" class="btn btn-primary">
+              <i class="fas fa-paper-plane"></i> Contrate-me
+            </a>
+            <a href="#sobre" class="btn btn-outline">
+              <i class="fas fa-comments"></i> Vamos Conversar
+            </a>
+          </div>
+          <div class="hero-social">
+            <a
+              href="https://github.com/enzopontes01"
+              target="_blank"
+              rel="noopener"
+              class="social-link"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://discord.com/users/933354127935803462"
+              target="_blank"
+              rel="noopener"
+              class="social-link"
+              aria-label="Discord"
+            >
+              <i class="fab fa-discord"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/enzinxz2/"
+              target="_blank"
+              rel="noopener"
+              class="social-link"
+              aria-label="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a
+              href="https://wa.me/5545998507429"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label="WhatsApp"
+            >
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image-wrapper">
+          <div class="hero-image-frame">
+            <img
+              src="imagens/enzo-home.jpg"
+              alt="Enzo — Frontend Developer"
+              class="hero-img"
+            />
+          </div>
+          <div class="hero-badge">
+            <i class="fas fa-code"></i>
+            <span>Frontend Dev</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll">
+        <a href="#sobre" aria-label="Rolar para baixo">
+          <i class="fas fa-chevron-down"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- ==============================
+         SOBRE
+    ============================== -->
+    <section id="sobre" class="about">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Sobre <span>Mim</span></h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-image-wrapper">
+            <img
+              src="imagens/enzo-sobre.jpg"
+              alt="Enzo trabalhando"
+              class="about-img"
+            />
+            <div class="about-img-deco"></div>
+            <div class="about-badge">
+              <span class="badge-num">2+</span>
+              <span class="badge-label">Meses de<br />Experiência</span>
+            </div>
+          </div>
+
+          <div class="about-content">
+            <h3 class="about-subtitle">
+              Iniciante em Dev &amp; <span>Cheio de Vontade</span>
+            </h3>
+            <p class="about-text">
+              Oi! Sou Enzo, tenho 14 anos e comecei a programar quando entrei na
+              <strong>Gazin Tech</strong> na área de T.I. Foi lá que descobri
+              que gostava mesmo disso — e desde então não parei mais de
+              aprender.
+            </p>
+            <p class="about-text">
+              Atualmente meu foco principal é JavaScript — a linguagem com a
+              qual venho desenvolvendo meus projetos. Construo cada entrega com
+              atenção, aprendendo com os erros e buscando evoluir de forma
+              consistente a cada novo desafio.
+            </p>
+
+            <div class="about-stats">
+              <div class="stat-item">
+                <span class="stat-number">5+</span>
+                <span class="stat-label">Projetos<br />Concluídos</span>
+              </div>
+
+              <div class="stat-item">
+                <span class="stat-number">2+</span>
+                <span class="stat-label">Meses de<br />Experiência</span>
+              </div>
+            </div>
+
+            <div class="about-btns">
+              <a href="#contato" class="btn btn-primary">
+                <i class="fas fa-envelope"></i> Contato
+              </a>
+              <a href="#projetos" class="btn btn-outline">
+                <i class="fas fa-folder-open"></i> Projetos
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         PROJETOS
+    ============================== -->
+    <section id="projetos" class="projects">
+      <!-- Grade SVG de fundo -->
+      <svg
+        class="grid-bg"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <pattern
+            id="grid-projects"
+            width="60"
+            height="60"
+            patternUnits="userSpaceOnUse"
+          >
+            <line
+              x1="0"
+              y1="0"
+              x2="60"
+              y2="0"
+              stroke="rgba(255,255,255,0.03)"
+              stroke-width="0.7"
+            />
+            <line
+              x1="0"
+              y1="0"
+              x2="0"
+              y2="60"
+              stroke="rgba(255,255,255,0.03)"
+              stroke-width="0.7"
+            />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid-projects)" />
+      </svg>
+      <div class="orb orb--section-left" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Meus <span>Projetos</span></h2>
+          <div class="section-line"></div>
+          <p class="section-desc">
+            Esses são os projetos que fiz desde que comecei a programar — cada
+            um me ensinou algo novo e me ajudou a evoluir um pouco mais.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Card 1 — Featured -->
+          <div class="project-card project-card--featured">
+            <span class="project-num">01</span>
+            <div class="project-img-wrapper">
+              <img
+                src="imagens/projeto-time.png"
+                alt="Brasil Time"
+                class="project-img"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    href="https://github.com/destypc/Brasil-Time"
+                    target="_blank"
+                    rel="noopener"
+                    class="project-link"
+                    aria-label="GitHub"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a
+                    href="https://destypc.github.io/Brasil-Time/"
+                    target="_blank"
+                    rel="noopener"
+                    class="project-link"
+                    aria-label="Demo ao vivo"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="project-status"
+                  ><i class="fas fa-circle-check"></i> Concluído</span
+                >
+              </div>
+              <h3 class="project-title">Brasil Time</h3>
+              <p class="project-desc">
+                App web com relógio no fuso de Brasília, cronômetro,
+                temporizador e calendário de feriados nacionais.
+              </p>
+              <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="project-card">
+            <span class="project-num">02</span>
+            <div class="project-img-wrapper">
+              <img
+                src="imagens/projeto-loja.png"
+                alt="SprintMax — Loja de artigos esportivos"
+                class="project-img"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    href="https://github.com/destypc/projeto-loja"
+                    target="_blank"
+                    rel="noopener"
+                    class="project-link"
+                    aria-label="GitHub"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a
+                    href="https://destypc.github.io/projeto-loja/"
+                    target="_blank"
+                    rel="noopener"
+                    class="project-link"
+                    aria-label="Demo ao vivo"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="project-status"
+                  ><i class="fas fa-circle-check"></i> Concluído</span
+                >
+              </div>
+              <h3 class="project-title">SprintMax</h3>
+              <p class="project-desc">
+                Loja de artigos esportivos com categorias, produtos em destaque,
+                ofertas e carrinho — criada para treinar criatividade no
+                front-end.
+              </p>
+              <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="project-card">
+            <span class="project-num">03</span>
+            <div class="project-img-wrapper">
+              <img
+                src="imagens/projeto-calc.png"
+                alt="Calculadora — operações matemáticas no navegador"
+                class="project-img"
+              />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <a
+                    href="https://github.com/destypc/Calculadora"
+                    target="_blank"
+                    rel="noopener"
+                    class="project-link"
+                    aria-label="GitHub"
+                  >
+                    <i class="fab fa-github"></i>
+                  </a>
+                  <a
+                    href="https://destypc.github.io/Calculadora/"
+                    target="_blank"
+                    rel="noopener"
+                    class="project-link"
+                    aria-label="Demo ao vivo"
+                  >
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-meta">
+                <span class="project-status"
+                  ><i class="fas fa-circle-check"></i> Concluído</span
+                >
+              </div>
+              <h3 class="project-title">Calculadora</h3>
+              <p class="project-desc">
+                Calculadora funcional no navegador com operações de adição,
+                subtração, multiplicação, divisão e porcentagem.
+              </p>
+              <div class="project-tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         GOSTOS
+    ============================== -->
+    <section id="gostos" class="interests">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Meus <span>Gostos</span></h2>
+          <div class="section-line"></div>
+          <p class="section-desc">
+            Fora da programação, tem várias coisas que fazem parte do meu dia a
+            dia e que, de um jeito ou outro, também me influenciam.
+          </p>
+        </div>
+
+        <div class="interests-grid">
+          <div class="interest-card">
+            <span class="interest-num">01</span>
+            <div class="interest-icon-wrap">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="interest-body">
+              <h3>Programação</h3>
+              <p>
+                Foi o que me puxou pra área de T.I. na Gazin Tech. Ainda tô
+                aprendendo, mas cada coisa nova que consigo fazer no código me
+                dá uma satisfação enorme.
+              </p>
+              <div class="interest-chips">
+                <span class="interest-chip"
+                  ><i class="fas fa-seedling"></i> Aprendendo</span
+                >
+                <span class="interest-chip">JavaScript</span>
+              </div>
+            </div>
+          </div>
+          <div class="interest-card interest-card--featured">
+            <span class="interest-num">02</span>
+            <div class="interest-icon-wrap">
+              <i class="fas fa-gamepad"></i>
+            </div>
+            <div class="interest-body">
+              <h3>Games</h3>
+              <p>
+                Curto muito jogos competitivos — aquela adrenalina de disputar e
+                querer melhorar a cada partida é viciante. É onde eu mais me
+                divirto no tempo livre.
+              </p>
+              <div class="interest-chips">
+                <span class="interest-chip"
+                  ><i class="fas fa-trophy"></i> Competitivo</span
+                >
+                <span class="interest-chip">Favorito</span>
+              </div>
+            </div>
+          </div>
+          <div class="interest-card">
+            <span class="interest-num">03</span>
+            <div class="interest-icon-wrap">
+              <i class="fas fa-music"></i>
+            </div>
+            <div class="interest-body">
+              <h3>Música</h3>
+              <p>
+                Sempre ouço música enquanto estou no computador — seja
+                programando ou jogando. Ajuda demais a manter o foco e o clima
+                certo.
+              </p>
+              <div class="interest-chips">
+                <span class="interest-chip"
+                  ><i class="fas fa-headphones"></i> No fone</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="interest-card">
+            <span class="interest-num">04</span>
+            <div class="interest-icon-wrap">
+              <i class="fas fa-dumbbell"></i>
+            </div>
+            <div class="interest-body">
+              <h3>Esportes</h3>
+              <p>
+                Gosto de me movimentar fora do computador também. Faz bem pra
+                cabeça e ajuda a não ficar travado quando bate aquele cansaço.
+              </p>
+              <div class="interest-chips">
+                <span class="interest-chip"
+                  ><i class="fas fa-bolt"></i> Fora do PC</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="interest-card">
+            <span class="interest-num">05</span>
+            <div class="interest-icon-wrap">
+              <i class="fas fa-user-group"></i>
+            </div>
+            <div class="interest-body">
+              <h3>Amigos</h3>
+              <p>
+                Jogar com os amigos, zoar, trocar ideia — essas são as melhores
+                partes do dia. Não tem como passar bem sem ter pessoas boas por
+                perto.
+              </p>
+              <div class="interest-chips">
+                <span class="interest-chip"
+                  ><i class="fas fa-gamepad"></i> Jogar junto</span
+                >
+                <span class="interest-chip">Essencial</span>
+              </div>
+            </div>
+          </div>
+          <div class="interest-card">
+            <span class="interest-num">06</span>
+            <div class="interest-icon-wrap">
+              <i class="fas fa-film"></i>
+            </div>
+            <div class="interest-body">
+              <h3>Filmes</h3>
+              <p>
+                Às vezes bate aquela vontade de assistir um bom filme à noite.
+                Curto bastante, especialmente quando a história prende do começo
+                ao fim.
+              </p>
+              <div class="interest-chips">
+                <span class="interest-chip"
+                  ><i class="fas fa-moon"></i> À noite</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         SKILLS
+    ============================== -->
+    <section id="skills" class="skills">
+      <!-- Grade SVG de fundo -->
+      <svg
+        class="grid-bg"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <pattern
+            id="grid-skills"
+            width="60"
+            height="60"
+            patternUnits="userSpaceOnUse"
+          >
+            <line
+              x1="0"
+              y1="0"
+              x2="60"
+              y2="0"
+              stroke="rgba(255,255,255,0.03)"
+              stroke-width="0.7"
+            />
+            <line
+              x1="0"
+              y1="0"
+              x2="0"
+              y2="60"
+              stroke="rgba(255,255,255,0.03)"
+              stroke-width="0.7"
+            />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid-skills)" />
+      </svg>
+      <div class="orb orb--section-right" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Minhas <span>Skills</span></h2>
+          <div class="section-line"></div>
+          <p class="section-desc">
+            Essas são as coisas que estou aprendendo e usando nos meus projetos.
+            Ainda tô no começo, mas evoluindo todo dia.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <!-- Coding Skills -->
+          <div class="skills-col">
+            <h3 class="skills-col-title">
+              <i class="fas fa-code"></i> Coding Skills
+            </h3>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <div class="skill-name">
+                  <i class="fab fa-html5" style="color: #e34f26"></i>
+                  <span>HTML5</span>
+                </div>
+                <span class="skill-pct">90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--w: 90%"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <div class="skill-name">
+                  <i class="fab fa-css3-alt" style="color: #264de4"></i>
+                  <span>CSS3</span>
+                </div>
+                <span class="skill-pct">85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--w: 85%"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div class="skill-info">
+                <div class="skill-name">
+                  <i class="fab fa-js" style="color: #f7df1e"></i>
+                  <span>JavaScript</span>
+                </div>
+                <span class="skill-pct">75%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-fill" style="--w: 75%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tecnologias -->
+          <div class="skills-col skills-col--tools">
+            <h3 class="skills-col-title">
+              <i class="fas fa-wrench"></i> Tecnologias
+            </h3>
+            <div class="tech-grid">
+              <div class="tech-card">
+                <i class="fas fa-code tech-icon" style="color: #3b82f6"></i>
+                <span class="tech-name">VS Code</span>
+              </div>
+              <div class="tech-card">
+                <i class="fab fa-github tech-icon" style="color: #f0f2f8"></i>
+                <span class="tech-name">GitHub</span>
+              </div>
+              <div class="tech-card">
+                <i class="fas fa-palette tech-icon" style="color: #818cf8"></i>
+                <span class="tech-name">GIMP</span>
+              </div>
+              <div class="tech-card">
+                <i class="fab fa-git-alt tech-icon" style="color: #f05032"></i>
+                <span class="tech-name">Git</span>
+              </div>
+              <div class="tech-card">
+                <svg
+                  class="tech-icon tech-icon--svg"
+                  viewBox="0 0 54 33"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M27 0C19.8 0 15.3 3.6 13.5 10.8C16.2 7.2 19.35 5.85 22.95 6.75C25.004 7.263 26.472 8.754 28.097 10.403C30.744 13.09 33.808 16.2 40.5 16.2C47.7 16.2 52.2 12.6 54 5.4C51.3 9 48.15 10.35 44.55 9.45C42.496 8.937 41.028 7.446 39.403 5.797C36.756 3.11 33.692 0 27 0ZM13.5 16.2C6.3 16.2 1.8 19.8 0 27C2.7 23.4 5.85 22.05 9.45 22.95C11.504 23.463 12.972 24.954 14.597 26.603C17.244 29.29 20.308 32.4 27 32.4C34.2 32.4 38.7 28.8 40.5 21.6C37.8 25.2 34.65 26.55 31.05 25.65C28.996 25.137 27.528 23.646 25.903 21.997C23.256 19.31 20.192 16.2 13.5 16.2Z"
+                    fill="#38BDF8"
+                  />
+                </svg>
+                <span class="tech-name">Tailwind</span>
+              </div>
+              <div class="tech-card">
+                <i
+                  class="fab fa-bootstrap tech-icon"
+                  style="color: #7952b3"
+                ></i>
+                <span class="tech-name">Bootstrap</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         CONTATO
+    ============================== -->
+    <section id="contato" class="contact">
+      <!-- Grade SVG de fundo -->
+      <svg
+        class="grid-bg"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <pattern
+            id="grid-contact"
+            width="60"
+            height="60"
+            patternUnits="userSpaceOnUse"
+          >
+            <line
+              x1="0"
+              y1="0"
+              x2="60"
+              y2="0"
+              stroke="rgba(255,255,255,0.04)"
+              stroke-width="0.7"
+            />
+            <line
+              x1="0"
+              y1="0"
+              x2="0"
+              y2="60"
+              stroke="rgba(255,255,255,0.04)"
+              stroke-width="0.7"
+            />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid-contact)" />
+      </svg>
+
+      <!-- Orbs decorativos -->
+      <div class="orb orb--section-right" aria-hidden="true"></div>
+      <div class="orb orb--section-left" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Entre em <span>Contato</span></h2>
+          <div class="section-line"></div>
+          <p class="section-desc">
+            Quer falar comigo? Me chama pelo WhatsApp ou manda um e-mail —
+            costumo responder bem rápido!
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Info -->
+          <div class="contact-info">
+            <h3 class="contact-info-title">Bora trocar ideia!</h3>
+            <p class="contact-info-desc">
+              Pode me chamar à vontade — seja pra falar sobre programação,
+              projetos ou só pra conversar mesmo. Tô sempre disponível!
+            </p>
+
+            <div class="contact-items">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Email</h4>
+                  <p>enzopontesdonascimento@gmail.com</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>WhatsApp</h4>
+                  <p>+55 (45) 99850-7429</p>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-location-dot"></i>
+                </div>
+                <div class="contact-details">
+                  <h4>Localização</h4>
+                  <p>Brasil</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-social">
+              <a
+                href="https://discord.com/users/933354127935803462"
+                target="_blank"
+                rel="noopener"
+                class="social-link"
+                aria-label="Discord"
+              >
+                <i class="fab fa-discord"></i>
+              </a>
+              <a
+                href="https://github.com/enzopontes01"
+                target="_blank"
+                rel="noopener"
+                class="social-link"
+                aria-label="GitHub"
+              >
+                <i class="fab fa-github"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/enzinxz2/"
+                target="_blank"
+                rel="noopener"
+                class="social-link"
+                aria-label="Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Formulário -->
+          <div class="contact-form-wrapper">
+            <form
+              class="contact-form"
+              action="https://formspree.io/f/xojrweal"
+              method="POST"
+            >
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nome">Nome Completo</label>
+                  <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    placeholder="Seu nome completo"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="seuemail@exemplo.com"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="whatsapp">WhatsApp</label>
+                  <input
+                    type="tel"
+                    id="whatsapp"
+                    name="whatsapp"
+                    placeholder="+55 (00) 99000-0000"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="assunto">Assunto</label>
+                  <input
+                    type="text"
+                    id="assunto"
+                    name="assunto"
+                    placeholder="Assunto da mensagem"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="mensagem">Mensagem</label>
+                <textarea
+                  id="mensagem"
+                  name="mensagem"
+                  rows="5"
+                  placeholder="Escreva sua mensagem..."
+                  required
+                ></textarea>
+              </div>
+              <div class="form-btns">
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                </button>
+                <a
+                  href="https://wa.me/5545998507429"
+                  class="btn btn-whatsapp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================
+         FOOTER
+    ============================== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <a href="#home" class="footer-logo">Enzo<span>.</span></a>
+          <p class="footer-desc">
+            14 anos, iniciante e aprendendo um dia de cada vez — esse portfólio
+            é só o começo.
+          </p>
+          <div class="footer-social">
+            <a
+              href="https://discord.com/users/933354127935803462"
+              target="_blank"
+              rel="noopener"
+              class="social-link"
+              aria-label="Discord"
+            >
+              <i class="fab fa-discord"></i>
+            </a>
+            <a
+              href="https://github.com/enzopontes01"
+              target="_blank"
+              rel="noopener"
+              class="social-link"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/enzinxz2/"
+              target="_blank"
+              rel="noopener"
+              class="social-link"
+              aria-label="Instagram"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+          <nav class="footer-nav" aria-label="Rodapé">
+            <a href="#home">Home</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#gostos">Gostos</a>
+            <a href="#skills">Skills</a>
+            <a href="#contato">Contato</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Enzo. Todos os direitos reservados.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <a href="#home" class="back-to-top" aria-label="Voltar ao topo">
+      <i class="fas fa-chevron-up"></i>
+    </a>
+  </body>
+</html>
