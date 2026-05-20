@@ -5,7 +5,6 @@
 Um portfólio moderno, responsivo e elegante desenvolvido utilizando apenas **HTML5** e **CSS3**.  
 O projeto foi criado com foco em design profissional, organização visual e experiência do usuário.
 
-<img src="./assets/img/preview.png" alt="Preview do Projeto" width="100%"/>
 
 </div>
 
