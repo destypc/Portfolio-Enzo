@@ -1,0 +1,248 @@
+/* ======================================================
+   ENZO — PORTFOLIO · Responsividade
+   Arquivo: assets/css/responsive.css
+   Breakpoints: 1024 / 960 / 640 / 400px
+   ====================================================== */
+
+/* ─────────────────────────────────────────────────────
+   TABLET LARGE (≤ 1024px)
+───────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .hero__grid,
+  .sobre__grid {
+    gap: var(--space-lg);
+  }
+
+  /* Projetos: duas colunas em telas médias */
+  .projetos__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ─────────────────────────────────────────────────────
+   NAV MOBILE + EMPILHAMENTO (≤ 960px)
+───────────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav {
+    position: fixed;
+    inset: var(--nav-h) 0 auto 0;
+    background: var(--nav-bg);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 1.5rem 1.5rem;
+    transform: translateY(-120%);
+    transition: transform var(--t-base);
+  }
+  .nav.is-open {
+    transform: translateY(0);
+  }
+  .nav__list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.25rem;
+  }
+  .nav__link {
+    padding: 0.85rem 1rem;
+    font-size: var(--fs-base);
+  }
+  .nav__link::after {
+    display: none;
+  }
+  .nav__link.is-active,
+  .nav__link:hover {
+    background: var(--accent-soft);
+  }
+
+  /* Hero empilhado */
+  .hero__grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-block: var(--space-lg);
+  }
+  .hero__content {
+    max-width: 100%;
+    order: 2;
+  }
+  .hero__visual {
+    order: 1;
+  }
+  .hero__role,
+  .hero__actions,
+  .hero__socials {
+    justify-content: center;
+  }
+  .hero__desc {
+    margin-inline: auto;
+  }
+  .hero__photo-wrap {
+    width: min(300px, 80%);
+  }
+
+  /* Sobre empilhado (sem forçar tela cheia) */
+  .sobre {
+    min-height: auto;
+  }
+  .sobre__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  .sobre__media {
+    order: -1;
+  }
+  .sobre__content {
+    text-align: center;
+  }
+  .sobre__text {
+    margin-inline: auto;
+  }
+  .info-cards {
+    text-align: left;
+  }
+  .sobre__actions {
+    justify-content: center;
+  }
+
+  /* Cabeçalho da jornada empilha os controles */
+  .section__header--row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Skills em coluna única */
+  .skills__grid {
+    grid-template-columns: 1fr;
+    max-width: 620px;
+    margin-inline: auto;
+  }
+  .skills__legend {
+    margin-top: 0;
+  }
+
+  .contact-cards {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+
+  /* Footer empilhado */
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ─────────────────────────────────────────────────────
+   MOBILE (≤ 640px)
+───────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .container {
+    padding-inline: 1.15rem;
+  }
+
+  .hero__title {
+    font-size: clamp(2.1rem, 1.2rem + 5.5vw, 3rem);
+    overflow-wrap: break-word;
+  }
+  .hero__role {
+    font-size: var(--fs-xl);
+  }
+  .hero__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero__actions .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+  .hero__chip {
+    right: 0;
+  }
+
+  /* Um card de jornada por vez, com o próximo espiando */
+  .journey-card {
+    flex-basis: 80vw;
+  }
+
+  /* Projetos em coluna única, centralizados */
+  .projetos__grid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    margin-inline: auto;
+  }
+
+  /* Skills mais compactas no mobile */
+  .skill-panel {
+    padding: 1.4rem 1.25rem;
+  }
+  .skill-techs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .skills__legend {
+    gap: 0.5rem 1rem;
+    font-size: var(--fs-xs);
+  }
+
+  .sobre__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sobre__actions .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .footer__tagline {
+    margin-inline: auto;
+  }
+  .footer__links a {
+    margin-inline: auto;
+  }
+  .footer__socials {
+    justify-content: center;
+  }
+  .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .scroll-top {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 42px;
+    height: 42px;
+  }
+  .color-switch__pop {
+    right: -46px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────
+   MOBILE XS (≤ 400px)
+───────────────────────────────────────────────────── */
+@media (max-width: 400px) {
+  .hero__photo-wrap {
+    width: min(240px, 78%);
+  }
+  .hero__chip {
+    display: none;
+  }
+  .info-cards {
+    grid-template-columns: 1fr;
+  }
+  .sobre__badge {
+    width: 92px;
+    height: 92px;
+    bottom: -12px;
+    right: -12px;
+  }
+}

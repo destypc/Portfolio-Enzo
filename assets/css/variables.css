@@ -1,0 +1,187 @@
+/* ======================================================
+   ENZO — PORTFOLIO · Design System (Design Tokens)
+   Arquivo: assets/css/variables.css
+   ------------------------------------------------------
+   Identidade: monocromática premium — preto profundo,
+   cinza escuro, branco e detalhes claros. Alto contraste,
+   minimalismo e sofisticação.
+
+   Tokens em 3 camadas:
+   1. Estruturais  — independentes de tema (raio, espaço, fonte)
+   2. Cor de destaque (accent) — trocável e adaptável ao tema
+   3. Tema          — cores que mudam entre claro/escuro
+
+   Cores derivadas usam color-mix() para não repetir rgba
+   fixos por cor (DRY): ao trocar o accent, tudo se ajusta.
+   ====================================================== */
+
+:root {
+  /* ── Tipografia ─────────────────────────────────── */
+  --font-sans: "Poppins", system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, "Cascadia Code", "Fira Code", monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.5rem;
+  --fs-3xl: 2rem;
+  --fs-4xl: clamp(2rem, 1.4rem + 2.6vw, 2.85rem);
+  --fs-5xl: clamp(2.5rem, 1.6rem + 4vw, 3.5rem);
+  --fs-6xl: clamp(2.85rem, 1.6rem + 5.4vw, 4.75rem);
+
+  /* ── Espaçamento ────────────────────────────────── */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+
+  /* ── Raio de borda ──────────────────────────────── */
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-xl: 26px;
+  --r-full: 999px;
+
+  /* ── Transições / easing ────────────────────────── */
+  --t-fast: 0.15s ease;
+  --t-base: 0.3s ease;
+  --t-slow: 0.55s ease;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Layout ─────────────────────────────────────── */
+  --nav-h: 72px;
+  --max-w: 1200px;
+  --section-py: clamp(4.5rem, 2rem + 9vw, 8rem);
+
+  --z-nav: 1000;
+  --z-float: 900;
+}
+
+/* ──────────────────────────────────────────────────
+   COR DE DESTAQUE (accent) — trocável pelo usuário
+   O padrão "mono" é adaptável ao tema: claro no escuro,
+   escuro no claro — a essência do visual monocromático.
+────────────────────────────────────────────────── */
+:root,
+[data-accent="mono"] {
+  --accent: #ecedf1;
+  --accent-2: #a9b0be;
+  --accent-contrast: #0a0a0c;
+}
+[data-theme="light"][data-accent="mono"] {
+  --accent: #16181f;
+  --accent-2: #3c4250;
+  --accent-contrast: #ffffff;
+}
+
+/* Acentos coloridos opcionais (contraste sempre branco) */
+[data-accent="indigo"] {
+  --accent: #6366f1;
+  --accent-2: #8b5cf6;
+  --accent-contrast: #ffffff;
+}
+[data-accent="violet"] {
+  --accent: #8b5cf6;
+  --accent-2: #d946ef;
+  --accent-contrast: #ffffff;
+}
+[data-accent="cyan"] {
+  --accent: #22d3ee;
+  --accent-2: #38bdf8;
+  --accent-contrast: #04141a;
+}
+[data-accent="emerald"] {
+  --accent: #10b981;
+  --accent-2: #34d399;
+  --accent-contrast: #04140e;
+}
+[data-accent="amber"] {
+  --accent: #f59e0b;
+  --accent-2: #fbbf24;
+  --accent-contrast: #1a1204;
+}
+[data-accent="rose"] {
+  --accent: #f43f5e;
+  --accent-2: #fb7185;
+  --accent-contrast: #ffffff;
+}
+
+/* Tokens derivados do accent — válidos em qualquer tema/cor */
+:root {
+  --accent-grad: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  --accent-soft: color-mix(in srgb, var(--accent) 12%, transparent);
+  --accent-softer: color-mix(in srgb, var(--accent) 6%, transparent);
+  --accent-border: color-mix(in srgb, var(--accent) 34%, transparent);
+  --accent-glow: color-mix(in srgb, var(--accent) 26%, transparent);
+
+  /* Cores semânticas de status das skills */
+  --ok: #34d399; /* conheço */
+  --learn: #fbbf24; /* aprendendo */
+  --want: #60a5fa; /* quero aprender */
+}
+
+/* ──────────────────────────────────────────────────
+   TEMA ESCURO (padrão) — preto profundo, alto contraste
+────────────────────────────────────────────────── */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #060608;
+  --bg-alt: #0b0c11;
+  --surface: #101218;
+  --surface-2: #191c25;
+
+  --text: #f5f6f9;
+  --text-2: #b0b5c2;
+  --text-muted: #757b8a;
+
+  --border: color-mix(in srgb, #ffffff 8%, transparent);
+  --border-strong: color-mix(in srgb, #ffffff 15%, transparent);
+
+  --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 10px 34px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.65);
+  --shadow-accent: 0 12px 34px var(--accent-glow);
+
+  --nav-bg: color-mix(in srgb, var(--bg) 72%, transparent);
+  --surface-glass: color-mix(in srgb, var(--surface) 78%, transparent);
+  --input-bg: color-mix(in srgb, #ffffff 4%, transparent);
+
+  /* Intensidade do fundo ambiente */
+  --ambient-opacity: 0.6;
+}
+
+/* ──────────────────────────────────────────────────
+   TEMA CLARO — cinza claro, branco, detalhes escuros
+────────────────────────────────────────────────── */
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: #f5f6fa;
+  --bg-alt: #eceef4;
+  --surface: #ffffff;
+  --surface-2: #f1f2f8;
+
+  --text: #12141b;
+  --text-2: #3d4250;
+  --text-muted: #6a707e;
+
+  --border: color-mix(in srgb, #0a0b12 10%, transparent);
+  --border-strong: color-mix(in srgb, #0a0b12 18%, transparent);
+
+  --shadow-sm: 0 2px 12px rgba(20, 22, 31, 0.08);
+  --shadow-md: 0 12px 34px rgba(20, 22, 31, 0.12);
+  --shadow-lg: 0 24px 56px rgba(20, 22, 31, 0.16);
+  --shadow-accent: 0 12px 34px var(--accent-glow);
+
+  --nav-bg: color-mix(in srgb, var(--bg) 70%, transparent);
+  --surface-glass: color-mix(in srgb, var(--surface) 82%, transparent);
+  --input-bg: color-mix(in srgb, #0a0b12 3%, transparent);
+
+  --ambient-opacity: 0.5;
+}
