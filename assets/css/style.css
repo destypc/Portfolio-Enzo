@@ -809,9 +809,9 @@ main,
 .hero__photo-wrap {
   position: relative;
   width: min(390px, 100%);
-  animation: floaty 6s ease-in-out infinite;
+  cursor: pointer;
 }
-/* Glow suave e discreto atrás da foto (substitui a antiga "fumaça") */
+/* Glow suave atrás da foto — acompanha o tilt e intensifica no hover */
 .hero__photo-wrap::before {
   content: "";
   position: absolute;
@@ -821,36 +821,10 @@ main,
   border-radius: 50%;
   filter: blur(46px);
   opacity: 0.18;
-  transition: opacity var(--t-slow);
-}
-.hero__photo-wrap:hover::before {
-  opacity: 0.36;
-}
-/* Borda de luz que percorre a moldura no hover (leve, premium) */
-.hero__photo-wrap::after {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  z-index: 2;
-  border-radius: calc(var(--r-xl) + 2px);
-  padding: 2px;
-  background: conic-gradient(
-    from var(--edge-angle, 0deg),
-    transparent 0%,
-    var(--accent) 18%,
-    transparent 42%
-  );
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  opacity: 0;
-  pointer-events: none;
   transition: opacity var(--t-base);
 }
-.hero__photo-wrap:hover::after {
-  opacity: 0.85;
-  animation: edgeSpin 4.5s linear infinite;
+.hero__photo-wrap:hover::before {
+  opacity: 0.34;
 }
 .hero__photo {
   position: relative;
@@ -861,15 +835,14 @@ main,
   border-radius: var(--r-xl);
   border: 1px solid var(--border-strong);
   box-shadow: var(--shadow-lg);
-  transition: transform var(--t-slow) var(--ease-out),
-    box-shadow var(--t-slow) var(--ease-out),
-    filter var(--t-slow) var(--ease-out);
+  transition: box-shadow var(--t-base) var(--ease-out),
+    border-color var(--t-base) var(--ease-out);
 }
-/* Hover discreto: leve elevação + iluminação dinâmica (sem rotação exagerada) */
+/* Hover premium: profundidade e destaque de borda.
+   O movimento 3D interativo (segue o mouse) vem do data-tilt (JS). */
 .hero__photo-wrap:hover .hero__photo {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: var(--shadow-lg), 0 26px 54px var(--accent-glow);
-  filter: saturate(1.08) contrast(1.03);
+  border-color: var(--accent-border);
+  box-shadow: var(--shadow-lg), 0 28px 56px var(--accent-glow);
 }
 .hero__chip {
   position: absolute;
@@ -1850,17 +1823,6 @@ main,
   }
 }
 
-/* Ângulo animável para a borda de luz da foto (fallback: estática) */
-@property --edge-angle {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
-@keyframes edgeSpin {
-  to {
-    --edge-angle: 360deg;
-  }
-}
 /* Ripple discreto ao clicar num card de projeto */
 @keyframes cardRipple {
   to {
