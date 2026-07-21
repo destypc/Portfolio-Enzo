@@ -55,7 +55,7 @@
   /* ── Layout ─────────────────────────────────────── */
   --nav-h: 72px;
   --max-w: 1200px;
-  --section-py: clamp(4.5rem, 2rem + 9vw, 8rem);
+  --section-py: clamp(3.5rem, 1.5rem + 6vw, 6rem);
 
   --z-nav: 1000;
   --z-float: 900;

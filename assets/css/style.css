@@ -288,7 +288,7 @@ main,
 .section__header {
   text-align: center;
   max-width: 660px;
-  margin: 0 auto var(--space-xl);
+  margin: 0 auto var(--space-lg);
 }
 
 .section__title {
@@ -974,9 +974,6 @@ main,
 ───────────────────────────────────────────────────── */
 .sobre {
   background: var(--bg-alt);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
 }
 .sobre__grid {
   display: grid;
