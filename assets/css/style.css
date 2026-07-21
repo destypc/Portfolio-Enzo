@@ -121,6 +121,84 @@ code {
   color: var(--text);
 }
 
+/* Trava o scroll enquanto a tela de carregamento está visível */
+html.is-loading,
+html.is-loading body {
+  overflow: hidden;
+}
+
+/* ─────────────────────────────────────────────────────
+   1b. TELA DE CARREGAMENTO (preloader)
+   Cobre a página no boot e sai com um fade suave. Usa as
+   cores do tema salvo (aplicado antes da pintura no <head>).
+───────────────────────────────────────────────────── */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 4000;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  transition: opacity 0.6s var(--ease-out), visibility 0.6s var(--ease-out);
+}
+.preloader.is-done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.preloader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.preloader__logo {
+  font-size: clamp(2.1rem, 6vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  animation: preloadPulse 1.5s ease-in-out infinite;
+}
+.preloader__logo span {
+  color: var(--accent);
+}
+.preloader__bar {
+  position: relative;
+  width: 190px;
+  max-width: 60vw;
+  height: 3px;
+  border-radius: var(--r-full);
+  background: var(--border-strong);
+  overflow: hidden;
+}
+.preloader__bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 40%;
+  border-radius: inherit;
+  background: var(--accent-grad);
+  animation: preloadSlide 1.1s var(--ease-out) infinite;
+}
+@keyframes preloadSlide {
+  0% {
+    transform: translateX(-130%);
+  }
+  100% {
+    transform: translateX(340%);
+  }
+}
+@keyframes preloadPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
 /* ─────────────────────────────────────────────────────
    2. FUNDO AMBIENTE (vivo) + PROFUNDIDADE
    Camada fixa atrás de tudo: orbs desfocados que derivam
@@ -1502,12 +1580,19 @@ main,
   border-color: var(--accent-border);
   box-shadow: 0 10px 26px var(--accent-glow);
 }
-.skill-tech > i {
+.skill-tech > i,
+.skill-tech > .skill-tech__logo {
   font-size: 1.5rem;
   flex-shrink: 0;
   transition: transform var(--t-base);
 }
-.skill-tech:hover > i {
+/* Logos em SVG (ex.: TypeScript) alinham-se ao tamanho dos ícones */
+.skill-tech > .skill-tech__logo {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.skill-tech:hover > i,
+.skill-tech:hover > .skill-tech__logo {
   transform: scale(1.18) rotate(-8deg);
 }
 .skill-tech__name {
@@ -1618,13 +1703,13 @@ main,
 .footer {
   background: var(--bg);
   border-top: 1px solid var(--border);
-  padding-top: clamp(3rem, 6vw, 4.5rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
 }
 .footer__grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
-  gap: clamp(2rem, 5vw, 4rem);
-  padding-bottom: 2.5rem;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding-bottom: 1.5rem;
 }
 .footer__brand .logo {
   font-size: var(--fs-2xl);
@@ -1642,7 +1727,7 @@ main,
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--text);
-  margin-bottom: 1.1rem;
+  margin-bottom: 0.75rem;
 }
 .footer__links {
   display: flex;
@@ -1669,7 +1754,7 @@ main,
   justify-content: space-between;
   gap: 0.5rem 1.5rem;
   flex-wrap: wrap;
-  padding-block: 1.5rem;
+  padding-block: 1rem;
   border-top: 1px solid var(--border);
   font-size: var(--fs-sm);
   color: var(--text-muted);
@@ -1837,6 +1922,27 @@ main,
    aqui só neutralizamos o crossfade padrão e ordenamos as
    camadas para o novo tema crescer por cima do antigo.
 ───────────────────────────────────────────────────── */
+
+/* Enquanto o tema troca (classe posta pelo JS durante a revelação):
+   o custo da View Transition (que rasteriza a página inteira 2x —
+   tema antigo + novo) despenca porque desligamos as coisas caras.
+   É isto que deixa a troca fluida como referências premium.        */
+
+/* 1. Some com o fundo ambiente: os orbs têm filter: blur(80px) em
+   ~42vw — de longe o item mais caro de rasterizar no snapshot.     */
+html.theme-switching .bg-ambient {
+  display: none !important;
+}
+
+/* 2. Zera TODAS as transições de CSS pra nada competir com o wipe. */
+html.theme-switching *,
+html.theme-switching *::before,
+html.theme-switching *::after {
+  transition: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;

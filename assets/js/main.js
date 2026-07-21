@@ -133,6 +133,39 @@ function initFooterYear() {
   if (year) year.textContent = new Date().getFullYear();
 }
 
+/* ── Tela de carregamento: some após o load (com tempo mínimo) ─── */
+function initPreloader() {
+  const el = document.getElementById("preloader");
+  const root = document.documentElement;
+  if (!el) {
+    root.classList.remove("is-loading");
+    return;
+  }
+
+  const MIN_MS = 600; // evita "piscar" em carregamentos rápidos
+  const start = performance.now();
+  let hidden = false;
+
+  const hide = () => {
+    if (hidden) return;
+    hidden = true;
+    const wait = Math.max(0, MIN_MS - (performance.now() - start));
+    setTimeout(() => {
+      el.classList.add("is-done");
+      root.classList.remove("is-loading");
+      el.addEventListener("transitionend", () => el.remove(), { once: true });
+    }, wait);
+  };
+
+  if (document.readyState === "complete") {
+    hide();
+  } else {
+    window.addEventListener("load", hide, { once: true });
+    // Rede de segurança: nunca deixa o preloader preso.
+    setTimeout(hide, 5000);
+  }
+}
+
 /* ── Bootstrap ────────────────────────────────────── */
 function init() {
   initTheme();
@@ -143,6 +176,7 @@ function init() {
   initMobileMenu();
   initScrollSpy();
   initFooterYear();
+  initPreloader();
 }
 
 if (document.readyState === "loading") {

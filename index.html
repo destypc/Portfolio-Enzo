@@ -37,6 +37,8 @@
           const accent = localStorage.getItem("accent");
           if (theme) root.setAttribute("data-theme", theme);
           if (accent) root.setAttribute("data-accent", accent);
+          // Trava o scroll enquanto a tela de carregamento aparece.
+          root.classList.add("is-loading");
         } catch (_) {}
       })();
     </script>
@@ -68,6 +70,16 @@
     />
   </head>
   <body>
+    <!-- Tela de carregamento (preloader) -->
+    <div class="preloader" id="preloader" role="status" aria-label="Carregando">
+      <div class="preloader__inner">
+        <span class="preloader__logo">Enzo<span>.</span></span>
+        <span class="preloader__bar" aria-hidden="true">
+          <span class="preloader__bar-fill"></span>
+        </span>
+      </div>
+    </div>
+
     <!-- Fundo ambiente vivo (orbs desfocados + grade sutil) -->
     <div class="bg-ambient" aria-hidden="true">
       <span class="bg-orb bg-orb--1"></span>
@@ -120,6 +132,7 @@
                 <button type="button" class="swatch" data-accent="emerald" style="--sw: #10b981" aria-label="Esmeralda"></button>
                 <button type="button" class="swatch" data-accent="amber" style="--sw: #f59e0b" aria-label="Âmbar"></button>
                 <button type="button" class="swatch" data-accent="rose" style="--sw: #f43f5e" aria-label="Rosa"></button>
+                <button type="button" class="swatch" data-accent="sky" style="--sw: #3b82f6" aria-label="Azul"></button>
               </div>
             </div>
           </div>
@@ -566,19 +579,22 @@
                   <i class="fab fa-css3-alt" style="color:#264de4" aria-hidden="true"></i>
                   <span class="skill-tech__name">CSS3</span>
                 </li>
-                <li class="skill-tech skill-tech--learn">
-                  <span class="skill-tech__status" title="Estou aprendendo" aria-label="Estou aprendendo"></span>
+                <li class="skill-tech skill-tech--ok">
+                  <span class="skill-tech__status" title="Conheço" aria-label="Conheço"></span>
                   <i class="fab fa-js" style="color:#f7df1e" aria-hidden="true"></i>
                   <span class="skill-tech__name">JavaScript</span>
                 </li>
-                <li class="skill-tech skill-tech--learn">
-                  <span class="skill-tech__status" title="Estou aprendendo" aria-label="Estou aprendendo"></span>
+                <li class="skill-tech skill-tech--ok">
+                  <span class="skill-tech__status" title="Conheço" aria-label="Conheço"></span>
                   <i class="fab fa-php" style="color:#777bb3" aria-hidden="true"></i>
                   <span class="skill-tech__name">PHP</span>
                 </li>
-                <li class="skill-tech skill-tech--want">
+                <li class="skill-tech skill-tech--learn">
                   <span class="skill-tech__status" title="Quero aprender" aria-label="Quero aprender"></span>
-                  <i class="fas fa-code" style="color:#3178c6" aria-hidden="true"></i>
+                  <svg class="skill-tech__logo" viewBox="0 0 512 512" role="img" aria-hidden="true" focusable="false">
+                    <rect width="512" height="512" rx="50" fill="#3178c6" />
+                    <path fill="#fff" fill-rule="evenodd" clip-rule="evenodd" d="M316.939 407.424v50.061c8.138 4.172 17.763 7.3 28.875 9.386s22.823 3.129 35.135 3.129c11.999 0 23.397-1.147 34.196-3.442 10.799-2.294 20.268-6.075 28.406-11.342 8.138-5.266 14.581-12.15 19.328-20.65s7.121-19.007 7.121-31.522c0-9.074-1.356-17.026-4.069-23.857s-6.625-12.906-11.738-18.225c-5.112-5.319-11.242-10.091-18.389-14.315s-15.207-8.213-24.18-11.967c-6.573-2.712-12.468-5.345-17.685-7.9-5.217-2.556-9.651-5.163-13.303-7.822-3.652-2.66-6.469-5.476-8.451-8.448-1.982-2.973-2.974-6.336-2.974-10.091 0-3.441.887-6.544 2.661-9.308s4.278-5.136 7.512-7.118c3.235-1.981 7.199-3.52 11.894-4.615 4.696-1.096 9.912-1.644 15.651-1.644 4.173 0 8.581.313 13.224.938 4.643.626 9.312 1.591 14.008 2.894 4.695 1.304 9.259 2.947 13.694 4.929 4.434 1.982 8.529 4.276 12.285 6.884v-46.776c-7.616-2.92-15.937-5.084-24.962-6.492s-19.381-2.112-31.066-2.112c-11.895 0-23.163 1.278-33.805 3.833s-20.006 6.544-28.093 11.967c-8.086 5.424-14.476 12.333-19.171 20.729-4.695 8.395-7.043 18.433-7.043 30.114 0 14.914 4.304 27.638 12.912 38.172 8.607 10.533 21.675 19.45 39.204 26.751 6.886 2.816 13.303 5.579 19.25 8.291s11.086 5.528 15.415 8.448c4.33 2.92 7.747 6.101 10.252 9.543 2.504 3.441 3.756 7.352 3.756 11.733 0 3.233-.783 6.231-2.348 8.995s-3.939 5.162-7.121 7.196c-3.183 2.033-7.147 3.624-11.894 4.771-4.748 1.148-10.303 1.722-16.668 1.722-10.851 0-21.597-1.904-32.24-5.71-10.642-3.805-20.502-9.516-29.579-17.13zm-84.159-123.342h64.216v-32.882h-179v32.882h63.898v182.918h50.886z" />
+                  </svg>
                   <span class="skill-tech__name">TypeScript</span>
                 </li>
                 <li class="skill-tech skill-tech--want">
@@ -604,17 +620,17 @@
                   <i class="fab fa-bootstrap" style="color:#7952b3" aria-hidden="true"></i>
                   <span class="skill-tech__name">Bootstrap</span>
                 </li>
-                <li class="skill-tech skill-tech--learn">
-                  <span class="skill-tech__status" title="Estou aprendendo" aria-label="Estou aprendendo"></span>
+                <li class="skill-tech skill-tech--ok">
+                  <span class="skill-tech__status" title="Conheço" aria-label="Conheço"></span>
                   <i class="fas fa-wind" style="color:#38bdf8" aria-hidden="true"></i>
                   <span class="skill-tech__name">Tailwind</span>
                 </li>
-                <li class="skill-tech skill-tech--want">
+                <li class="skill-tech skill-tech--learn">
                   <span class="skill-tech__status" title="Quero aprender" aria-label="Quero aprender"></span>
                   <i class="fab fa-react" style="color:#61dafb" aria-hidden="true"></i>
                   <span class="skill-tech__name">React</span>
                 </li>
-                <li class="skill-tech skill-tech--want">
+                <li class="skill-tech skill-tech--learn">
                   <span class="skill-tech__status" title="Quero aprender" aria-label="Quero aprender"></span>
                   <i class="fab fa-node-js" style="color:#3c873a" aria-hidden="true"></i>
                   <span class="skill-tech__name">Node.js</span>
@@ -637,8 +653,8 @@
                 </div>
               </header>
               <ul class="skill-techs">
-                <li class="skill-tech skill-tech--learn">
-                  <span class="skill-tech__status" title="Estou aprendendo" aria-label="Estou aprendendo"></span>
+                <li class="skill-tech skill-tech--ok">
+                  <span class="skill-tech__status" title="Conheço" aria-label="Conheço"></span>
                   <i class="fas fa-database" style="color:#00758f" aria-hidden="true"></i>
                   <span class="skill-tech__name">MySQL</span>
                 </li>
@@ -690,8 +706,8 @@
                   <i class="fas fa-server" style="color:#fb7a24" aria-hidden="true"></i>
                   <span class="skill-tech__name">XAMPP</span>
                 </li>
-                <li class="skill-tech skill-tech--learn">
-                  <span class="skill-tech__status" title="Estou aprendendo" aria-label="Estou aprendendo"></span>
+                <li class="skill-tech skill-tech--want">
+                  <span class="skill-tech__status" title="Quero aprender" aria-label="Quero aprender"></span>
                   <i class="fab fa-figma" style="color:#a259ff" aria-hidden="true"></i>
                   <span class="skill-tech__name">Figma</span>
                 </li>
@@ -719,7 +735,7 @@
           </header>
 
           <div class="contact-cards reveal">
-            <a href="https://wa.me/554599850749" target="_blank" rel="noopener noreferrer" class="contact-card contact-card--whatsapp spotlight" data-tilt data-tilt-max="6">
+            <a href="https://wa.me/554599857429" target="_blank" rel="noopener noreferrer" class="contact-card contact-card--whatsapp spotlight" data-tilt data-tilt-max="6">
               <span class="contact-card__icon"><i class="fab fa-whatsapp" aria-hidden="true"></i></span>
               <span class="contact-card__label">WhatsApp</span>
               <span class="contact-card__value">+55 (45) 99850-7429</span>
@@ -770,7 +786,7 @@
               </a>
             </li>
             <li>
-              <a href="https://wa.me/554599850749" target="_blank" rel="noopener noreferrer" class="social-link" data-tooltip="WhatsApp" aria-label="WhatsApp">
+              <a href="https://wa.me/554599857429" target="_blank" rel="noopener noreferrer" class="social-link" data-tooltip="WhatsApp" aria-label="WhatsApp">
                 <i class="fab fa-whatsapp" aria-hidden="true"></i>
               </a>
             </li>

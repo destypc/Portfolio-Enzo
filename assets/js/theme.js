@@ -16,9 +16,9 @@ const prefersReducedMotion = window.matchMedia(
 /** Cor de fundo de cada tema (para o círculo do fallback e a meta). */
 const THEME_BG = { dark: "#060608", light: "#f5f6fa" };
 
-/* Revelação premium: rápida, mas com desaceleração suave (easeOutQuint). */
-const EASE = "cubic-bezier(0.22, 1, 0.36, 1)";
-const REVEAL_MS = 420;
+/* Revelação premium: aceleração e desaceleração suaves (easeInOutQuart). */
+const EASE = "cubic-bezier(0.76, 0, 0.24, 1)";
+const REVEAL_MS = 700;
 
 /** Salva um valor ignorando erros de armazenamento indisponível. */
 const save = (key, value) => {
@@ -51,8 +51,25 @@ function updateMetaColor(theme) {
     ?.setAttribute("content", THEME_BG[theme] || THEME_BG.dark);
 }
 
+/* Evita sobrepor animações quando o botão é clicado várias vezes seguidas. */
+let switching = false;
+
+/* Durante a revelação, desliga backdrop-filters e pausa os orbs para o
+   compositing ficar barato — é o que elimina o "trava" da troca de tema. */
+function beginSwitch() {
+  switching = true;
+  root.classList.add("theme-switching");
+}
+function endSwitch() {
+  switching = false;
+  root.classList.remove("theme-switching");
+}
+
 /* ── Troca de tema com revelação circular a partir do (x, y) ── */
 function toggleTheme(x, y) {
+  // Ignora cliques enquanto uma troca já está acontecendo.
+  if (switching) return;
+
   const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
 
   // Sem animação: aplica direto (respeita reduced-motion).
@@ -68,22 +85,30 @@ function toggleTheme(x, y) {
 
   // Caminho ideal: View Transitions API anima o novo tema crescendo.
   if (document.startViewTransition) {
+    beginSwitch();
     const transition = document.startViewTransition(() => setTheme(next));
     transition.ready.then(() => {
       root.animate(
-        {
-          clipPath: [
-            `circle(0px at ${x}px ${y}px)`,
-            `circle(${endRadius}px at ${x}px ${y}px)`,
-          ],
-        },
+        [
+          {
+            clipPath: `circle(0px at ${x}px ${y}px)`,
+            filter: next === "light" ? "brightness(1.08)" : "brightness(0.86)",
+          },
+          {
+            clipPath: `circle(${endRadius}px at ${x}px ${y}px)`,
+            filter: "brightness(1)",
+          },
+        ],
         {
           duration: REVEAL_MS,
           easing: EASE,
+          fill: "both",
           pseudoElement: "::view-transition-new(root)",
         }
       );
     });
+    // Libera o estado assim que a transição termina (ou falha).
+    transition.finished.finally(endSwitch);
     return;
   }
 
@@ -92,6 +117,8 @@ function toggleTheme(x, y) {
 }
 
 function rippleFallback(next, x, y, endRadius) {
+  beginSwitch();
+
   const ripple = document.createElement("div");
   ripple.className = "theme-ripple";
   ripple.style.left = `${x}px`;
@@ -110,7 +137,10 @@ function rippleFallback(next, x, y, endRadius) {
 
   anim.onfinish = () => {
     setTheme(next); // aplica sob o disco, então remove revelando o tema
-    requestAnimationFrame(() => ripple.remove());
+    requestAnimationFrame(() => {
+      ripple.remove();
+      endSwitch();
+    });
   };
 }
 

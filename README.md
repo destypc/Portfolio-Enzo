@@ -2,7 +2,7 @@
 
 # ✨ Portfólio Pessoal — Enzo
 
-Um portfólio moderno, responsivo e elegante desenvolvido utilizando apenas **HTML5** e **CSS3**.  
+Um portfólio moderno, responsivo e elegante desenvolvido com **HTML5**, **CSS3** e **JavaScript**.  
 O projeto foi criado com foco em design profissional, organização visual e experiência do usuário.
 
 
@@ -32,7 +32,8 @@ O site possui:
 | Tecnologia | Uso |
 |---|---|
 | HTML5 | Estrutura do site |
-| CSS3 | Estilização |
+| CSS3 | Estilização e animações |
+| JavaScript | Interações, tema e troca de cor |
 | Font Awesome | Ícones |
 | Google Fonts | Tipografia |
 
@@ -43,10 +44,12 @@ O site possui:
 # 📂 Estrutura do Projeto
 
 ```bash
-📦 portfolio
+📦 Portfolio-IA
  ┣ 📂 assets
- ┃ ┣ 📂 css
- ┃ ┣ 📂 img
- ┃ ┗ 📂 icons
+ ┃ ┣ 📂 css            # variables.css · style.css · responsive.css
+ ┃ ┣ 📂 js             # main.js · theme.js · animations.js · interactions.js
+ ┃ ┗ 📂 images         # imagens do hero, sobre e projetos
  ┣ 📜 index.html
- ┗ 📜 README.md
+ ┣ 📜 README.md
+ ┗ 📜 LICENSE
+```
