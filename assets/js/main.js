@@ -6,6 +6,7 @@
    ====================================================== */
 
 import { initTheme } from "./theme.js";
+import { initI18n } from "./i18n.js";
 import { initAnimations } from "./animations.js";
 import { initInteractions } from "./interactions.js";
 
@@ -168,6 +169,7 @@ function initPreloader() {
 
 /* ── Bootstrap ────────────────────────────────────── */
 function init() {
+  initI18n();
   initTheme();
   initAnimations();
   initInteractions();

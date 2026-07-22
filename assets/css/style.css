@@ -761,6 +761,108 @@ main,
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--sw) 45%, transparent);
 }
 
+/* ── Troca de idioma (popover) ─────────────────── */
+.lang-switch {
+  position: relative;
+}
+.icon-btn--lang {
+  width: auto;
+  gap: 0.4rem;
+  padding: 0 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+/* Bandeirinha do idioma ativo (imagem local): retângulo arredondado
+   com bordinha; a imagem preenche a caixa com object-fit: cover. */
+.lang-switch__flag {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 22px;
+  height: 15px;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--border);
+}
+.lang-switch__flag img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.lang-switch__current {
+  letter-spacing: 0.04em;
+}
+.lang-switch__pop {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  right: 0;
+  width: 180px;
+  padding: 0.5rem;
+  background: var(--surface-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px) scale(0.98);
+  transform-origin: top right;
+  transition: opacity var(--t-base), transform var(--t-base),
+    visibility var(--t-base);
+  z-index: 60;
+}
+.lang-switch.is-open .lang-switch__pop {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+.lang-switch__pop .color-switch__title {
+  padding-inline: 0.5rem;
+}
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.55rem 0.6rem;
+  border: 0;
+  background: none;
+  border-radius: var(--r-sm);
+  color: var(--text-2);
+  font-family: inherit;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--t-fast), color var(--t-fast);
+}
+.lang-option:hover {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+.lang-option.is-active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+/* Bandeirinha de cada opção do popover (mesmo estilo, um pouco maior). */
+.lang-option__flag {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 24px;
+  height: 16px;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--border);
+}
+.lang-option__flag img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /* ── Hambúrguer ─────────────────────────────────── */
 .hamburger {
   display: none;
@@ -946,6 +1048,46 @@ main,
 }
 .hero__chip i {
   color: var(--accent);
+}
+
+/* ── Foto redonda do hero (avatar do GitHub) ─────────
+   Sobrescreve o formato retangular por um círculo com um
+   anel de destaque que acompanha o tilt e brilha no hover. */
+.hero__photo-wrap--round {
+  width: min(420px, 100%);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+.hero__photo--round {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border-width: 4px;
+}
+/* Anel de destaque desenhado com máscara radial (só a borda externa). */
+.hero__photo-ring {
+  position: absolute;
+  inset: -7px;
+  z-index: 0;
+  border-radius: 50%;
+  background: var(--accent-grad);
+  opacity: 0.55;
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 5px),
+    #000 calc(100% - 5px)
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 5px),
+    #000 calc(100% - 5px)
+  );
+  transition: opacity var(--t-base);
+}
+.hero__photo-wrap--round:hover .hero__photo-ring {
+  opacity: 0.9;
 }
 .scroll-cue {
   position: absolute;
@@ -1556,6 +1698,12 @@ main,
   grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   gap: 0.75rem;
 }
+/* Cada <li> é a célula da grade; o link .skill-tech preenche toda a célula. */
+.skill-techs > li {
+  display: grid;
+}
+/* Cada tecnologia é um link (<a>) para a documentação oficial; herda a cor
+   e remove o sublinhado para parecer um "chip" clicável. */
 .skill-tech {
   position: relative;
   display: flex;
@@ -1565,7 +1713,9 @@ main,
   background: var(--bg-alt);
   border: 1px solid var(--border);
   border-radius: var(--r-md);
-  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
   transition: transform var(--t-base), border-color var(--t-base),
     box-shadow var(--t-base), background var(--t-base);
 }
@@ -1602,19 +1752,38 @@ main,
   position: absolute;
   top: 8px;
   right: 8px;
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  z-index: 3;
+  z-index: 4;
+  cursor: help;
+  transition: transform var(--t-fast), box-shadow var(--t-fast);
+}
+.skill-tech__status:hover {
+  transform: scale(1.3);
 }
 .skill-tech--ok .skill-tech__status {
   background: var(--ok);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--ok) 22%, transparent);
 }
 .skill-tech--learn .skill-tech__status {
   background: var(--learn);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--learn) 22%, transparent);
 }
 .skill-tech--want .skill-tech__status {
   background: var(--want);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--want) 22%, transparent);
+}
+/* Tooltip da bolinha de status — ancorada à direita para não vazar
+   além da borda do card (a bolinha fica no canto superior direito). */
+.skill-tech__status[data-tooltip]::after {
+  left: auto;
+  right: -6px;
+  transform: translateX(0) translateY(4px);
+}
+.skill-tech__status[data-tooltip]:hover::after,
+.skill-tech__status[data-tooltip]:focus-visible::after {
+  transform: translateX(0) translateY(0);
 }
 .skill-tech--want {
   opacity: 0.82;

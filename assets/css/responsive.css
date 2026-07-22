@@ -82,6 +82,9 @@
   .hero__photo-wrap {
     width: min(300px, 80%);
   }
+  .hero__photo-wrap--round {
+    width: min(340px, 82%);
+  }
 
   /* Sobre empilhado (sem forçar tela cheia) */
   .sobre {
@@ -224,6 +227,10 @@
   .color-switch__pop {
     right: -46px;
   }
+  .icon-btn--lang {
+    padding: 0 0.55rem;
+    font-size: 0.8rem;
+  }
 }
 
 /* ─────────────────────────────────────────────────────
@@ -232,6 +239,9 @@
 @media (max-width: 400px) {
   .hero__photo-wrap {
     width: min(240px, 78%);
+  }
+  .hero__photo-wrap--round {
+    width: min(260px, 80%);
   }
   .hero__chip {
     display: none;

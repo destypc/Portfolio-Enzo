@@ -5,6 +5,8 @@
    e o efeito de digitação do hero.
    ====================================================== */
 
+import { getRoles } from "./i18n.js";
+
 const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
 ).matches;
@@ -39,38 +41,48 @@ function initTyping() {
   const el = document.getElementById("typed");
   if (!el) return;
 
-  const roles = [
-    "Front-End Developer",
-    "Web Developer",
-    "PHP Developer",
-    "Full Stack em evolução",
-  ];
-
+  // Sem movimento: mostra só o primeiro cargo e reage à troca de idioma.
   if (prefersReducedMotion) {
-    el.textContent = roles[0];
+    const showFirst = () => {
+      el.textContent = getRoles()[0] || "";
+    };
+    showFirst();
+    document.addEventListener("languagechange", showFirst);
     return;
   }
 
+  let roles = getRoles();
   let roleIndex = 0;
   let charIndex = 0;
   let deleting = false;
+  let timer = null;
 
   const loop = () => {
-    const current = roles[roleIndex];
+    const current = roles[roleIndex] || "";
     el.textContent = current.slice(0, charIndex);
 
     if (!deleting && charIndex < current.length) {
       charIndex++;
-      setTimeout(loop, 80);
+      timer = setTimeout(loop, 80);
     } else if (deleting && charIndex > 0) {
       charIndex--;
-      setTimeout(loop, 40);
+      timer = setTimeout(loop, 40);
     } else {
       deleting = !deleting;
       if (!deleting) roleIndex = (roleIndex + 1) % roles.length;
-      setTimeout(loop, deleting ? 1600 : 400);
+      timer = setTimeout(loop, deleting ? 1600 : 400);
     }
   };
+
+  // Reinicia a digitação com os cargos do novo idioma.
+  document.addEventListener("languagechange", () => {
+    clearTimeout(timer);
+    roles = getRoles();
+    roleIndex = 0;
+    charIndex = 0;
+    deleting = false;
+    loop();
+  });
 
   loop();
 }
