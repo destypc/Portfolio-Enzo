@@ -1733,10 +1733,23 @@ main,
   flex-shrink: 0;
   transition: transform var(--t-base);
 }
-/* Logos em SVG (ex.: TypeScript) alinham-se ao tamanho dos ícones */
+/* Logos oficiais em SVG (assets/images/skills/) */
 .skill-tech > .skill-tech__logo {
   width: 1.5rem;
   height: 1.5rem;
+  object-fit: contain;
+}
+/* Logos pretos (ex.: GitHub) ficam brancos no tema escuro */
+.skill-tech__logo--mono {
+  filter: invert(1);
+}
+/* Logos escuros com traço fino (ex.: MySQL) ganham brilho no tema escuro */
+.skill-tech__logo--dim {
+  filter: brightness(2.2) saturate(1.2);
+}
+[data-theme="light"] .skill-tech__logo--mono,
+[data-theme="light"] .skill-tech__logo--dim {
+  filter: none;
 }
 .skill-tech:hover > i,
 .skill-tech:hover > .skill-tech__logo {

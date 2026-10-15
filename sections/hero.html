@@ -1,0 +1,108 @@
+<!-- ================= HERO ================= -->
+<section id="home" class="hero">
+  <div class="container hero__grid">
+    <div class="hero__content">
+      <h1 class="hero__title" style="--i: 0" data-i18n-html="hero.title">
+        Olá, sou <span class="hero__name">Enzo</span>
+      </h1>
+
+      <p class="hero__role" style="--i: 1">
+        <span class="hero__role-bar" aria-hidden="true"></span>
+        <span id="typed" class="hero__typed" aria-live="polite"></span>
+        <span class="hero__cursor" aria-hidden="true"></span>
+      </p>
+
+      <p class="hero__desc" style="--i: 2" data-i18n="hero.desc">
+        Desenvolvedor web júnior de 15 anos apaixonado por transformar
+        ideias em experiências digitais. Construo interfaces limpas e
+        responsivas — uma linha de código por vez.
+      </p>
+
+      <div class="hero__actions" style="--i: 3">
+        <a href="#projetos" class="btn btn--primary" data-scroll>
+          <i class="fas fa-folder-open" aria-hidden="true"></i>
+          <span data-i18n="hero.btnProjects">Ver Projetos</span>
+        </a>
+        <a href="#contato" class="btn btn--ghost" data-scroll>
+          <i class="fas fa-paper-plane" aria-hidden="true"></i>
+          <span data-i18n="hero.btnContact">Contato</span>
+        </a>
+      </div>
+
+      <ul class="hero__socials" style="--i: 4" aria-label="Redes sociais">
+        <li>
+          <a
+            href="https://github.com/destypc"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+            data-tooltip="GitHub"
+            aria-label="GitHub"
+          >
+            <i class="fab fa-github" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://wa.me/554599850749"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+            data-tooltip="WhatsApp"
+            aria-label="WhatsApp"
+          >
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+          </a>
+        </li>
+        <li>
+          <a
+            href="mailto:enzopontesdonascimento@gmail.com"
+            class="social-link"
+            data-tooltip="E-mail"
+            aria-label="E-mail"
+          >
+            <i class="fas fa-envelope" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="hero__visual">
+      <div
+        class="hero__photo-wrap hero__photo-wrap--round"
+        data-tilt
+        data-tilt-max="8"
+      >
+        <span class="hero__photo-ring" aria-hidden="true"></span>
+        <img
+          src="https://avatars.githubusercontent.com/u/267407388?v=4"
+          alt="Retrato de Enzo Nascimento"
+          class="hero__photo hero__photo--round"
+          width="390"
+          height="390"
+          fetchpriority="high"
+          referrerpolicy="no-referrer"
+          data-i18n-alt="hero.photoAlt"
+          onerror="
+            this.onerror = null;
+            this.src = 'assets/images/enzo-home.jpg';
+          "
+        />
+        <div class="hero__chip">
+          <i class="fas fa-code" aria-hidden="true"></i>
+          <span data-i18n="hero.chip">Desenvolvedor Web</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a
+    href="#sobre"
+    class="scroll-cue"
+    data-scroll
+    aria-label="Rolar para a próxima seção"
+    data-i18n-aria="hero.scrollCue"
+  >
+    <i class="fas fa-chevron-down" aria-hidden="true"></i>
+  </a>
+</section>

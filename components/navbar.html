@@ -1,0 +1,232 @@
+<!-- ================= NAVBAR ================= -->
+<header class="navbar" id="navbar">
+  <div class="navbar__inner">
+    <a href="#home" class="logo" aria-label="Início">Enzo<span>.</span></a>
+
+    <nav id="navMenu" class="nav" aria-label="Navegação principal">
+      <ul class="nav__list">
+        <li>
+          <a href="#home" class="nav__link is-active" data-i18n="nav.home"
+            >Início</a
+          >
+        </li>
+        <li>
+          <a href="#sobre" class="nav__link" data-i18n="nav.about">Sobre</a>
+        </li>
+        <li>
+          <a href="#jornada" class="nav__link" data-i18n="nav.journey"
+            >Jornada</a
+          >
+        </li>
+        <li>
+          <a href="#projetos" class="nav__link" data-i18n="nav.projects"
+            >Projetos</a
+          >
+        </li>
+        <li>
+          <a href="#skills" class="nav__link" data-i18n="nav.skills"
+            >Skills</a
+          >
+        </li>
+        <li>
+          <a href="#contato" class="nav__link" data-i18n="nav.contact"
+            >Contato</a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <div class="navbar__actions">
+      <!-- Seletor de idioma (PT / EN / ES)
+           A bandeira do idioma ativo aparece no botão; as demais
+           ficam no popover. São imagens locais (assets/images/flags),
+           pois o Windows não renderiza emojis de bandeira. O botão
+           é atualizado dinamicamente pelo i18n.js. -->
+      <div class="lang-switch">
+        <button
+          type="button"
+          class="icon-btn icon-btn--lang"
+          id="langBtn"
+          data-tooltip="Idioma"
+          data-i18n-tooltip="tt.lang"
+          aria-label="Escolher idioma"
+          data-i18n-aria="aria.lang"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <span class="lang-switch__flag" id="langFlag" aria-hidden="true">
+            <img
+              src="assets/images/flags/br.png"
+              srcset="assets/images/flags/br@2x.png 2x"
+              alt=""
+              width="20"
+              height="14"
+            />
+          </span>
+          <span class="lang-switch__current" id="langCurrent">PT</span>
+        </button>
+        <div class="lang-switch__pop" id="langPop" role="menu">
+          <span class="color-switch__title" data-i18n="lang.title"
+            >Idioma</span
+          >
+          <button
+            type="button"
+            class="lang-option is-active"
+            data-lang="pt"
+            role="menuitemradio"
+            aria-checked="true"
+          >
+            <span class="lang-option__flag" aria-hidden="true">
+              <img
+                src="assets/images/flags/br.png"
+                srcset="assets/images/flags/br@2x.png 2x"
+                alt=""
+                width="24"
+                height="16"
+              />
+            </span>
+            Português
+          </button>
+          <button
+            type="button"
+            class="lang-option"
+            data-lang="en"
+            role="menuitemradio"
+            aria-checked="false"
+          >
+            <span class="lang-option__flag" aria-hidden="true">
+              <img
+                src="assets/images/flags/us.png"
+                srcset="assets/images/flags/us@2x.png 2x"
+                alt=""
+                width="24"
+                height="16"
+              />
+            </span>
+            English
+          </button>
+          <button
+            type="button"
+            class="lang-option"
+            data-lang="es"
+            role="menuitemradio"
+            aria-checked="false"
+          >
+            <span class="lang-option__flag" aria-hidden="true">
+              <img
+                src="assets/images/flags/es.png"
+                srcset="assets/images/flags/es@2x.png 2x"
+                alt=""
+                width="24"
+                height="16"
+              />
+            </span>
+            Español
+          </button>
+        </div>
+      </div>
+
+      <div class="color-switch">
+        <button
+          type="button"
+          class="icon-btn"
+          id="paletteBtn"
+          data-tooltip="Cor principal"
+          data-i18n-tooltip="tt.color"
+          aria-label="Escolher cor principal"
+          data-i18n-aria="aria.color"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i class="fas fa-palette" aria-hidden="true"></i>
+        </button>
+        <div class="color-switch__pop" id="palettePop" role="menu">
+          <span class="color-switch__title" data-i18n="color.title"
+            >Cor de destaque</span
+          >
+          <div class="color-switch__swatches">
+            <button
+              type="button"
+              class="swatch"
+              data-accent="mono"
+              style="--sw: linear-gradient(135deg, #ecedf1, #a9b0be)"
+              aria-label="Monocromático"
+            ></button>
+            <button
+              type="button"
+              class="swatch"
+              data-accent="indigo"
+              style="--sw: #6366f1"
+              aria-label="Índigo"
+            ></button>
+            <button
+              type="button"
+              class="swatch"
+              data-accent="violet"
+              style="--sw: #8b5cf6"
+              aria-label="Violeta"
+            ></button>
+            <button
+              type="button"
+              class="swatch"
+              data-accent="cyan"
+              style="--sw: #22d3ee"
+              aria-label="Ciano"
+            ></button>
+            <button
+              type="button"
+              class="swatch"
+              data-accent="emerald"
+              style="--sw: #10b981"
+              aria-label="Esmeralda"
+            ></button>
+            <button
+              type="button"
+              class="swatch"
+              data-accent="amber"
+              style="--sw: #f59e0b"
+              aria-label="Âmbar"
+            ></button>
+            <button
+              type="button"
+              class="swatch"
+              data-accent="rose"
+              style="--sw: #f43f5e"
+              aria-label="Rosa"
+            ></button>
+            <button
+              type="button"
+              class="swatch"
+              data-accent="sky"
+              style="--sw: #3b82f6"
+              aria-label="Azul"
+            ></button>
+          </div>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        class="icon-btn"
+        id="themeBtn"
+        data-tooltip="Tema claro/escuro"
+        data-i18n-tooltip="tt.theme"
+        aria-label="Alternar tema claro e escuro"
+        data-i18n-aria="aria.theme"
+      >
+        <i class="fas fa-moon" aria-hidden="true"></i>
+      </button>
+
+      <button
+        type="button"
+        class="hamburger"
+        id="hamburger"
+        aria-label="Abrir menu"
+        aria-controls="navMenu"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>

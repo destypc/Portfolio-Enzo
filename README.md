@@ -75,11 +75,25 @@ puro, como exercício de domínio dos fundamentos da web.
  ┃ ┃ ┗ 📜 responsive.css     # Breakpoints (1024 / 960 / 640 / 400px)
  ┃ ┣ 📂 js
  ┃ ┃ ┣ 📜 main.js            # Ponto de entrada · navegação · preloader
+ ┃ ┃ ┣ 📜 include.js         # Monta a página com os arquivos de components/ e sections/
+ ┃ ┃ ┣ 📜 i18n.js            # Traduções (PT / EN / ES)
  ┃ ┃ ┣ 📜 theme.js           # Tema claro/escuro e cor de destaque
  ┃ ┃ ┣ 📜 animations.js      # Reveal ao rolar + efeito de digitação
  ┃ ┃ ┗ 📜 interactions.js    # Tilt 3D, spotlight, parallax e carrossel
- ┃ ┗ 📂 images               # Imagens do hero, sobre e projetos
- ┣ 📜 index.html
+ ┃ ┗ 📂 images
+ ┃   ┣ 📂 skills             # Logos oficiais das tecnologias (SVG)
+ ┃   ┗ 📂 flags              # Bandeiras do seletor de idioma
+ ┣ 📂 components
+ ┃ ┣ 📜 navbar.html          # Cabeçalho, menu, idioma, tema e cores
+ ┃ ┗ 📜 footer.html          # Rodapé
+ ┣ 📂 sections
+ ┃ ┣ 📜 hero.html            # Início
+ ┃ ┣ 📜 sobre.html           # Sobre mim
+ ┃ ┣ 📜 jornada.html         # Carrossel da jornada
+ ┃ ┣ 📜 projetos.html        # Projetos
+ ┃ ┣ 📜 skills.html          # Tecnologias por categoria
+ ┃ ┗ 📜 contato.html         # Contato
+ ┣ 📜 index.html             # Esqueleto: <head>, preloader e os data-include
  ┣ 📜 LICENSE
  ┗ 📜 README.md
 ```
@@ -95,8 +109,9 @@ git clone https://github.com/destypc/Projeto-Portfolio.git
 cd Projeto-Portfolio
 ```
 
-Abra o `index.html` no navegador. Como o projeto usa **ES Modules**, o ideal é
-servir por um servidor local (evita bloqueios de CORS):
+Como o projeto usa **ES Modules** e carrega as seções de `components/` e
+`sections/` via `fetch`, ele precisa ser servido por um servidor local (abrir o
+`index.html` direto pelo arquivo não funciona):
 
 ```bash
 # Com Python

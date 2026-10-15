@@ -9,8 +9,10 @@ import { initTheme } from "./theme.js";
 import { initI18n } from "./i18n.js";
 import { initAnimations } from "./animations.js";
 import { initInteractions } from "./interactions.js";
+import { loadPartials } from "./include.js";
 
-const navbar = document.getElementById("navbar");
+// A navbar vem de components/navbar.html — só existe após loadPartials().
+let navbar = null;
 
 /** Altura real da navbar fixa (inclui borda) — usada como offset. */
 const navHeight = () => navbar?.offsetHeight ?? 0;
@@ -167,8 +169,21 @@ function initPreloader() {
   }
 }
 
+/* ── Âncora na URL (ex.: /#skills) ───────────────────
+   O navegador tenta pular para a âncora antes das seções
+   existirem; refaz o salto depois que elas são montadas. */
+function initHashTarget() {
+  const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  if (!target) return;
+  const top = target.getBoundingClientRect().top + window.scrollY - navHeight();
+  window.scrollTo({ top: Math.max(top, 0), behavior: "instant" });
+}
+
 /* ── Bootstrap ────────────────────────────────────── */
-function init() {
+async function init() {
+  await loadPartials();
+  navbar = document.getElementById("navbar");
+
   initI18n();
   initTheme();
   initAnimations();
@@ -178,6 +193,7 @@ function init() {
   initMobileMenu();
   initScrollSpy();
   initFooterYear();
+  initHashTarget();
   initPreloader();
 }
 
