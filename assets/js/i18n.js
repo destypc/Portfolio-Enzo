@@ -122,7 +122,7 @@ export const translations = {
     "status.done": "Concluído",
     "status.dev": "Em desenvolvimento",
     "proj.time.desc":
-      "Tempo no fuso de Brasília: relógio em tempo real, cronômetro, temporizador e calendário com os feriados nacionais.",
+      "Global-Time é uma aplicação web para consultar horários, utilizar cronômetro e temporizador, com uma interface moderna, responsiva e intuitiva.",
     "proj.max.desc":
       "Sistema de vendas com CRUD completo: cadastro de produtos, categorias e um painel administrativo em PHP e SQL.",
     "proj.soon.name": "Novo projeto chegando…",
@@ -272,7 +272,7 @@ export const translations = {
     "status.done": "Completed",
     "status.dev": "In development",
     "proj.time.desc":
-      "Brasília time zone: real-time clock, stopwatch, timer and a calendar with the national holidays.",
+      "Global-Time is a web app to check the time and use a stopwatch and timer, with a modern, responsive and intuitive interface.",
     "proj.max.desc":
       "Sales system with a full CRUD: product and category management plus an admin dashboard in PHP and SQL.",
     "proj.soon.name": "New project coming soon…",
@@ -422,7 +422,7 @@ export const translations = {
     "status.done": "Concluido",
     "status.dev": "En desarrollo",
     "proj.time.desc":
-      "Hora en el huso de Brasilia: reloj en tiempo real, cronómetro, temporizador y calendario con los feriados nacionales.",
+      "Global-Time es una aplicación web para consultar la hora y usar cronómetro y temporizador, con una interfaz moderna, responsiva e intuitiva.",
     "proj.max.desc":
       "Sistema de ventas con CRUD completo: registro de productos, categorías y un panel administrativo en PHP y SQL.",
     "proj.soon.name": "Nuevo proyecto en camino…",

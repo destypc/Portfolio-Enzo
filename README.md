@@ -132,7 +132,7 @@ Depois acesse `http://localhost:5500`.
 
 | Projeto | Descrição | Stack |
 |---|---|---|
-| [**Brasil Time**](https://destypc.github.io/Brasil-Time/) | Relógio em tempo real, cronômetro, temporizador e calendário com feriados nacionais | HTML · CSS · JavaScript |
+| [**Global Time**](https://global-time.lzdev.com.br/) | Aplicação web para consultar horários, utilizar cronômetro e temporizador, com interface moderna, responsiva e intuitiva | HTML · CSS · JavaScript |
 | [**SprintMax**](https://sprint-max-crud-production.up.railway.app/pages/dashboard.php) | Sistema de vendas com CRUD completo e painel administrativo | PHP · SQL |
 
 ---
