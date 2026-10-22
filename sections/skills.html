@@ -1,4 +1,4 @@
-<!-- ================= SKILLS (categorias + status) ================= -->
+<!-- ================= SKILLS (stack principal + mapa por categoria) ================= -->
 <section id="skills" class="section skills">
   <div class="container">
     <header class="section__header reveal">
@@ -7,625 +7,490 @@
         Minhas <span>tecnologias</span>
       </h2>
       <p class="section__subtitle" data-i18n="skills.subtitle">
-        Organizadas por categoria e por nível de familiaridade — o que já
-        domino, o que estou aprendendo agora e o que quero aprender em
-        seguida.
+        Organizadas pelo papel que cada uma cumpre no meu trabalho — com
+        destaque para as que já usei em projetos publicados.
       </p>
     </header>
 
-    <!-- Legenda dos status -->
-    <div class="skills__legend reveal">
-      <span class="legend-item"
-        ><span class="legend-dot legend-dot--ok"></span>
-        <span data-i18n="skills.know">Conheço</span></span
-      >
-      <span class="legend-item"
-        ><span class="legend-dot legend-dot--learn"></span>
-        <span data-i18n="skills.learning">Estou aprendendo</span></span
-      >
-      <span class="legend-item"
-        ><span class="legend-dot legend-dot--want"></span>
-        <span data-i18n="skills.want">Quero aprender</span></span
-      >
-    </div>
-
-    <!-- Grade de tecnologias
-         Cada tecnologia é um link (abre a documentação oficial em
-         nova aba). A bolinha no canto (.skill-tech__status) indica o
-         nível de familiaridade pela cor (ok / learn / want) e mostra
-         o significado num tooltip ao passar o mouse. -->
-    <div class="skills__grid">
-      <!-- Linguagens -->
-      <article
-        class="skill-panel spotlight reveal"
-        data-tilt
-        data-tilt-max="4"
-      >
-        <header class="skill-panel__head">
-          <span class="skill-panel__icon"
-            ><i class="fas fa-code" aria-hidden="true"></i
-          ></span>
-          <div>
-            <h3 class="skill-panel__title" data-i18n="skills.langsT">
-              Linguagens
-            </h3>
-            <span class="skill-panel__count" data-i18n="skills.langsS"
-              >A base de tudo que construo</span
-            >
-          </div>
-        </header>
-        <ul class="skill-techs">
-          <li>
-            <a
-              class="skill-tech skill-tech--ok"
-              href="https://developer.mozilla.org/pt-BR/docs/Web/HTML"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="HTML5 — abrir documentação"
-            >
-              <span
-                class="skill-tech__status"
-                data-tooltip="Conheço"
-                data-i18n-tooltip="skills.know"
-                aria-label="Conheço"
-              ></span>
-              <img
-                class="skill-tech__logo"
+    <div class="skills__layout">
+      <!-- Stack principal: tecnologias que aparecem nas tags dos
+           projetos publicados (seção Projetos). -->
+      <div class="skills-core reveal reveal--left">
+        <h3 class="skills-core__title" data-i18n="skills.coreT">
+          Stack principal
+        </h3>
+        <p class="skills-core__desc" data-i18n="skills.coreS">
+          Tecnologias que já usei nos projetos publicados.
+        </p>
+        <ul class="skills-core__list">
+          <li class="core-tech">
+            <span class="core-tech__logo"
+              ><img
                 src="assets/images/skills/html5.svg"
                 alt=""
-                width="24"
-                height="24"
+                width="21"
+                height="21"
                 loading="lazy"
-              />
-              <span class="skill-tech__name">HTML5</span>
-            </a>
+            /></span>
+            <span class="core-tech__name">HTML5</span>
+            <span class="core-tech__where">Global Time</span>
           </li>
-          <li>
-            <a
-              class="skill-tech skill-tech--ok"
-              href="https://developer.mozilla.org/pt-BR/docs/Web/CSS"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="CSS3 — abrir documentação"
-            >
-              <span
-                class="skill-tech__status"
-                data-tooltip="Conheço"
-                data-i18n-tooltip="skills.know"
-                aria-label="Conheço"
-              ></span>
-              <img
-                class="skill-tech__logo"
+          <li class="core-tech">
+            <span class="core-tech__logo"
+              ><img
                 src="assets/images/skills/css3.svg"
                 alt=""
-                width="24"
-                height="24"
+                width="21"
+                height="21"
                 loading="lazy"
-              />
-              <span class="skill-tech__name">CSS3</span>
-            </a>
+            /></span>
+            <span class="core-tech__name">CSS3</span>
+            <span class="core-tech__where">Global Time</span>
           </li>
-          <li>
-            <a
-              class="skill-tech skill-tech--ok"
-              href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="JavaScript — abrir documentação"
-            >
-              <span
-                class="skill-tech__status"
-                data-tooltip="Conheço"
-                data-i18n-tooltip="skills.know"
-                aria-label="Conheço"
-              ></span>
-              <img
-                class="skill-tech__logo"
+          <li class="core-tech">
+            <span class="core-tech__logo"
+              ><img
                 src="assets/images/skills/javascript.svg"
                 alt=""
-                width="24"
-                height="24"
+                width="21"
+                height="21"
                 loading="lazy"
-              />
-              <span class="skill-tech__name">JavaScript</span>
-            </a>
+            /></span>
+            <span class="core-tech__name">JavaScript</span>
+            <span class="core-tech__where">Global Time</span>
           </li>
-          <li>
-            <a
-              class="skill-tech skill-tech--ok"
-              href="https://www.php.net/docs.php"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="PHP — abrir documentação"
-            >
-              <span
-                class="skill-tech__status"
-                data-tooltip="Conheço"
-                data-i18n-tooltip="skills.know"
-                aria-label="Conheço"
-              ></span>
-              <img
-                class="skill-tech__logo"
+          <li class="core-tech">
+            <span class="core-tech__logo"
+              ><img
                 src="assets/images/skills/php.svg"
                 alt=""
-                width="24"
-                height="24"
+                width="21"
+                height="21"
                 loading="lazy"
-              />
-              <span class="skill-tech__name">PHP</span>
-            </a>
+            /></span>
+            <span class="core-tech__name">PHP</span>
+            <span class="core-tech__where">SprintMax</span>
           </li>
-          <li>
-            <a
-              class="skill-tech skill-tech--ok"
-              href="https://www.typescriptlang.org/docs/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="TypeScript — abrir documentação"
-            >
-              <span
-                class="skill-tech__status"
-                data-tooltip="Conheço"
-                data-i18n-tooltip="skills.know"
-                aria-label="Conheço"
-              ></span>
-              <img
-                class="skill-tech__logo"
-                src="assets/images/skills/typescript.svg"
-                alt=""
-                width="24"
-                height="24"
-                loading="lazy"
-              />
-              <span class="skill-tech__name">TypeScript</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="skill-tech skill-tech--want"
-              href="https://docs.python.org/3/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Python — abrir documentação"
-            >
-              <span
-                class="skill-tech__status"
-                data-tooltip="Quero aprender"
-                data-i18n-tooltip="skills.want"
-                aria-label="Quero aprender"
-              ></span>
-              <img
-                class="skill-tech__logo"
-                src="assets/images/skills/python.svg"
-                alt=""
-                width="24"
-                height="24"
-                loading="lazy"
-              />
-              <span class="skill-tech__name">Python</span>
-            </a>
-          </li>
-        </ul>
-      </article>
-
-      <!-- Frameworks -->
-      <article
-        class="skill-panel spotlight reveal reveal--d1"
-        data-tilt
-        data-tilt-max="4"
-      >
-        <header class="skill-panel__head">
-          <span class="skill-panel__icon"
-            ><i class="fas fa-layer-group" aria-hidden="true"></i
-          ></span>
-          <div>
-            <h3 class="skill-panel__title" data-i18n-html="skills.fwT">
-              Frameworks &amp; Libs
-            </h3>
-            <span class="skill-panel__count" data-i18n="skills.fwS"
-              >Para construir mais rápido</span
-            >
-          </div>
-        </header>
-        <ul class="skill-techs">
-          <li>
-            <a
-              class="skill-tech skill-tech--ok"
-              href="https://getbootstrap.com/docs/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Bootstrap — abrir documentação"
-            >
-              <span
-                class="skill-tech__status"
-                data-tooltip="Conheço"
-                data-i18n-tooltip="skills.know"
-                aria-label="Conheço"
-              ></span>
-              <img
-                class="skill-tech__logo"
-                src="assets/images/skills/bootstrap.svg"
-                alt=""
-                width="24"
-                height="24"
-                loading="lazy"
-              />
-              <span class="skill-tech__name">Bootstrap</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="skill-tech skill-tech--ok"
-              href="https://tailwindcss.com/docs"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Tailwind — abrir documentação"
-            >
-              <span
-                class="skill-tech__status"
-                data-tooltip="Conheço"
-                data-i18n-tooltip="skills.know"
-                aria-label="Conheço"
-              ></span>
-              <img
-                class="skill-tech__logo"
-                src="assets/images/skills/tailwindcss.svg"
-                alt=""
-                width="24"
-                height="24"
-                loading="lazy"
-              />
-              <span class="skill-tech__name">Tailwind</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="skill-tech skill-tech--ok"
-              href="https://react.dev/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="React — abrir documentação"
-            >
-              <span
-                class="skill-tech__status"
-                data-tooltip="Conheço"
-                data-i18n-tooltip="skills.know"
-                aria-label="Conheço"
-              ></span>
-              <img
-                class="skill-tech__logo"
+          <li class="core-tech">
+            <span class="core-tech__logo"
+              ><img
                 src="assets/images/skills/react.svg"
                 alt=""
-                width="24"
-                height="24"
+                width="21"
+                height="21"
                 loading="lazy"
-              />
-              <span class="skill-tech__name">React</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="skill-tech skill-tech--ok"
-              href="https://nodejs.org/docs/latest/api/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Node.js — abrir documentação"
-            >
-              <span
-                class="skill-tech__status"
-                data-tooltip="Conheço"
-                data-i18n-tooltip="skills.know"
-                aria-label="Conheço"
-              ></span>
-              <img
-                class="skill-tech__logo"
-                src="assets/images/skills/nodejs.svg"
-                alt=""
-                width="24"
-                height="24"
-                loading="lazy"
-              />
-              <span class="skill-tech__name">Node.js</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="skill-tech skill-tech--ok"
-              href="https://laravel.com/docs"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Laravel — abrir documentação"
-            >
-              <span
-                class="skill-tech__status"
-                data-tooltip="Conheço"
-                data-i18n-tooltip="skills.know"
-                aria-label="Conheço"
-              ></span>
-              <img
-                class="skill-tech__logo"
-                src="assets/images/skills/laravel.svg"
-                alt=""
-                width="24"
-                height="24"
-                loading="lazy"
-              />
-              <span class="skill-tech__name">Laravel</span>
-            </a>
+            /></span>
+            <span class="core-tech__name">React</span>
+            <span class="core-tech__where">LZdev</span>
           </li>
         </ul>
-      </article>
+        <a href="#projetos" class="skills-core__link" data-scroll>
+          <span data-i18n="skills.coreLink">Ver projetos</span>
+          <i class="fas fa-arrow-right" aria-hidden="true"></i>
+        </a>
+      </div>
 
-      <!-- Banco de Dados -->
-      <article
-        class="skill-panel spotlight reveal reveal--d1"
-        data-tilt
-        data-tilt-max="4"
-      >
-        <header class="skill-panel__head">
-          <span class="skill-panel__icon"
-            ><i class="fas fa-database" aria-hidden="true"></i
-          ></span>
-          <div>
-            <h3 class="skill-panel__title" data-i18n="skills.dbT">
-              Banco de Dados
+      <!-- Mapa completo por categoria. Cada tecnologia é um link para a
+           documentação oficial (nova aba). -->
+      <div class="skills-map reveal reveal--right">
+        <!-- Linguagens -->
+        <div class="skills-group">
+          <div class="skills-group__head">
+            <span class="skills-group__index" aria-hidden="true">01</span>
+            <h3 class="skills-group__title" data-i18n="skills.langsT">
+              Linguagens
             </h3>
-            <span class="skill-panel__count" data-i18n="skills.dbS"
-              >Onde os dados vivem</span
-            >
+            <p class="skills-group__desc" data-i18n="skills.langsS">
+              A base de tudo que construo
+            </p>
           </div>
-        </header>
-        <ul class="skill-techs">
-          <li>
-            <a
-              class="skill-tech skill-tech--ok"
-              href="https://dev.mysql.com/doc/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="MySQL — abrir documentação"
-            >
-              <span
-                class="skill-tech__status"
-                data-tooltip="Conheço"
-                data-i18n-tooltip="skills.know"
-                aria-label="Conheço"
-              ></span>
-              <img
-                class="skill-tech__logo skill-tech__logo--dim"
-                src="assets/images/skills/mysql.svg"
-                alt=""
-                width="24"
-                height="24"
-                loading="lazy"
-              />
-              <span class="skill-tech__name">MySQL</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="skill-tech skill-tech--ok"
-              href="https://docs.phpmyadmin.net/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="phpMyAdmin — abrir documentação"
-            >
-              <span
-                class="skill-tech__status"
-                data-tooltip="Conheço"
-                data-i18n-tooltip="skills.know"
-                aria-label="Conheço"
-              ></span>
-              <img
-                class="skill-tech__logo"
-                src="assets/images/skills/phpmyadmin.svg"
-                alt=""
-                width="24"
-                height="24"
-                loading="lazy"
-              />
-              <span class="skill-tech__name">phpMyAdmin</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="skill-tech skill-tech--want"
-              href="https://www.postgresql.org/docs/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="PostgreSQL — abrir documentação"
-            >
-              <span
-                class="skill-tech__status"
-                data-tooltip="Quero aprender"
-                data-i18n-tooltip="skills.want"
-                aria-label="Quero aprender"
-              ></span>
-              <img
-                class="skill-tech__logo"
-                src="assets/images/skills/postgresql.svg"
-                alt=""
-                width="24"
-                height="24"
-                loading="lazy"
-              />
-              <span class="skill-tech__name">PostgreSQL</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="skill-tech skill-tech--want"
-              href="https://www.mongodb.com/docs/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="MongoDB — abrir documentação"
-            >
-              <span
-                class="skill-tech__status"
-                data-tooltip="Quero aprender"
-                data-i18n-tooltip="skills.want"
-                aria-label="Quero aprender"
-              ></span>
-              <img
-                class="skill-tech__logo"
-                src="assets/images/skills/mongodb.svg"
-                alt=""
-                width="24"
-                height="24"
-                loading="lazy"
-              />
-              <span class="skill-tech__name">MongoDB</span>
-            </a>
-          </li>
-        </ul>
-      </article>
+          <ul class="skill-chips">
+            <li>
+              <a
+                class="skill-chip"
+                href="https://developer.mozilla.org/pt-BR/docs/Web/HTML"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="HTML5 — abrir documentação"
+              >
+                <img
+                  class="skill-chip__logo"
+                  src="assets/images/skills/html5.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                HTML5
+              </a>
+            </li>
+            <li>
+              <a
+                class="skill-chip"
+                href="https://developer.mozilla.org/pt-BR/docs/Web/CSS"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="CSS3 — abrir documentação"
+              >
+                <img
+                  class="skill-chip__logo"
+                  src="assets/images/skills/css3.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                CSS3
+              </a>
+            </li>
+            <li>
+              <a
+                class="skill-chip"
+                href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="JavaScript — abrir documentação"
+              >
+                <img
+                  class="skill-chip__logo"
+                  src="assets/images/skills/javascript.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                JavaScript
+              </a>
+            </li>
+            <li>
+              <a
+                class="skill-chip"
+                href="https://www.typescriptlang.org/docs/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TypeScript — abrir documentação"
+              >
+                <img
+                  class="skill-chip__logo"
+                  src="assets/images/skills/typescript.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                TypeScript
+              </a>
+            </li>
+            <li>
+              <a
+                class="skill-chip"
+                href="https://www.php.net/docs.php"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="PHP — abrir documentação"
+              >
+                <img
+                  class="skill-chip__logo"
+                  src="assets/images/skills/php.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                PHP
+              </a>
+            </li>
+          </ul>
+        </div>
 
-      <!-- Ferramentas -->
-      <article
-        class="skill-panel spotlight reveal reveal--d2"
-        data-tilt
-        data-tilt-max="4"
-      >
-        <header class="skill-panel__head">
-          <span class="skill-panel__icon"
-            ><i class="fas fa-screwdriver-wrench" aria-hidden="true"></i
-          ></span>
-          <div>
-            <h3 class="skill-panel__title" data-i18n="skills.toolsT">
+        <!-- Front-end -->
+        <div class="skills-group">
+          <div class="skills-group__head">
+            <span class="skills-group__index" aria-hidden="true">02</span>
+            <h3 class="skills-group__title" data-i18n="skills.feT">
+              Front-end
+            </h3>
+            <p class="skills-group__desc" data-i18n="skills.feS">
+              Interfaces e estilização
+            </p>
+          </div>
+          <ul class="skill-chips">
+            <li>
+              <a
+                class="skill-chip"
+                href="https://react.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="React — abrir documentação"
+              >
+                <img
+                  class="skill-chip__logo"
+                  src="assets/images/skills/react.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                React
+              </a>
+            </li>
+            <li>
+              <a
+                class="skill-chip"
+                href="https://tailwindcss.com/docs"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Tailwind CSS — abrir documentação"
+              >
+                <img
+                  class="skill-chip__logo"
+                  src="assets/images/skills/tailwindcss.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                Tailwind CSS
+              </a>
+            </li>
+            <li>
+              <a
+                class="skill-chip"
+                href="https://getbootstrap.com/docs/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Bootstrap — abrir documentação"
+              >
+                <img
+                  class="skill-chip__logo"
+                  src="assets/images/skills/bootstrap.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                Bootstrap
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Back-end -->
+        <div class="skills-group">
+          <div class="skills-group__head">
+            <span class="skills-group__index" aria-hidden="true">03</span>
+            <h3 class="skills-group__title" data-i18n="skills.beT">
+              Back-end
+            </h3>
+            <p class="skills-group__desc" data-i18n="skills.beS">
+              Lógica do lado do servidor
+            </p>
+          </div>
+          <ul class="skill-chips">
+            <li>
+              <a
+                class="skill-chip"
+                href="https://laravel.com/docs"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Laravel — abrir documentação"
+              >
+                <img
+                  class="skill-chip__logo"
+                  src="assets/images/skills/laravel.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                Laravel
+              </a>
+            </li>
+            <li>
+              <a
+                class="skill-chip"
+                href="https://nodejs.org/docs/latest/api/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Node.js — abrir documentação"
+              >
+                <img
+                  class="skill-chip__logo"
+                  src="assets/images/skills/nodejs.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                Node.js
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Banco de dados -->
+        <div class="skills-group">
+          <div class="skills-group__head">
+            <span class="skills-group__index" aria-hidden="true">04</span>
+            <h3 class="skills-group__title" data-i18n="skills.dbT">
+              Banco de dados
+            </h3>
+            <p class="skills-group__desc" data-i18n="skills.dbS">
+              Onde os dados vivem
+            </p>
+          </div>
+          <ul class="skill-chips">
+            <li>
+              <a
+                class="skill-chip"
+                href="https://dev.mysql.com/doc/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="MySQL — abrir documentação"
+              >
+                <img
+                  class="skill-chip__logo skill-chip__logo--dim"
+                  src="assets/images/skills/mysql.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                MySQL
+              </a>
+            </li>
+            <li>
+              <a
+                class="skill-chip"
+                href="https://docs.phpmyadmin.net/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="phpMyAdmin — abrir documentação"
+              >
+                <img
+                  class="skill-chip__logo"
+                  src="assets/images/skills/phpmyadmin.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                phpMyAdmin
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Ferramentas -->
+        <div class="skills-group">
+          <div class="skills-group__head">
+            <span class="skills-group__index" aria-hidden="true">05</span>
+            <h3 class="skills-group__title" data-i18n="skills.toolsT">
               Ferramentas
             </h3>
-            <span class="skill-panel__count" data-i18n="skills.toolsS"
-              >Meu dia a dia de trabalho</span
-            >
+            <p class="skills-group__desc" data-i18n="skills.toolsS">
+              Meu dia a dia de trabalho
+            </p>
           </div>
-        </header>
-        <ul class="skill-techs">
-          <li>
-            <a
-              class="skill-tech skill-tech--ok"
-              href="https://code.visualstudio.com/docs"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="VS Code — abrir documentação"
-            >
-              <span
-                class="skill-tech__status"
-                data-tooltip="Conheço"
-                data-i18n-tooltip="skills.know"
-                aria-label="Conheço"
-              ></span>
-              <img
-                class="skill-tech__logo"
-                src="assets/images/skills/vscode.svg"
-                alt=""
-                width="24"
-                height="24"
-                loading="lazy"
-              />
-              <span class="skill-tech__name">VS Code</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="skill-tech skill-tech--ok"
-              href="https://git-scm.com/doc"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Git — abrir documentação"
-            >
-              <span
-                class="skill-tech__status"
-                data-tooltip="Conheço"
-                data-i18n-tooltip="skills.know"
-                aria-label="Conheço"
-              ></span>
-              <img
-                class="skill-tech__logo"
-                src="assets/images/skills/git.svg"
-                alt=""
-                width="24"
-                height="24"
-                loading="lazy"
-              />
-              <span class="skill-tech__name">Git</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="skill-tech skill-tech--ok"
-              href="https://docs.github.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub — abrir documentação"
-            >
-              <span
-                class="skill-tech__status"
-                data-tooltip="Conheço"
-                data-i18n-tooltip="skills.know"
-                aria-label="Conheço"
-              ></span>
-              <img
-                class="skill-tech__logo skill-tech__logo--mono"
-                src="assets/images/skills/github.svg"
-                alt=""
-                width="24"
-                height="24"
-                loading="lazy"
-              />
-              <span class="skill-tech__name">GitHub</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="skill-tech skill-tech--ok"
-              href="https://www.apachefriends.org/faq_windows.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="XAMPP — abrir documentação"
-            >
-              <span
-                class="skill-tech__status"
-                data-tooltip="Conheço"
-                data-i18n-tooltip="skills.know"
-                aria-label="Conheço"
-              ></span>
-              <img
-                class="skill-tech__logo"
-                src="assets/images/skills/xampp.svg"
-                alt=""
-                width="24"
-                height="24"
-                loading="lazy"
-              />
-              <span class="skill-tech__name">XAMPP</span>
-            </a>
-          </li>
-          <li>
-            <a
-              class="skill-tech skill-tech--ok"
-              href="https://docs.docker.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Docker — abrir documentação"
-            >
-              <span
-                class="skill-tech__status"
-                data-tooltip="Conheço"
-                data-i18n-tooltip="skills.know"
-                aria-label="Conheço"
-              ></span>
-              <img
-                class="skill-tech__logo"
-                src="assets/images/skills/docker.svg"
-                alt=""
-                width="24"
-                height="24"
-                loading="lazy"
-              />
-              <span class="skill-tech__name">Docker</span>
-            </a>
-          </li>
-        </ul>
-      </article>
+          <ul class="skill-chips">
+            <li>
+              <a
+                class="skill-chip"
+                href="https://git-scm.com/doc"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Git — abrir documentação"
+              >
+                <img
+                  class="skill-chip__logo"
+                  src="assets/images/skills/git.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                Git
+              </a>
+            </li>
+            <li>
+              <a
+                class="skill-chip"
+                href="https://docs.github.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub — abrir documentação"
+              >
+                <img
+                  class="skill-chip__logo skill-chip__logo--mono"
+                  src="assets/images/skills/github.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a
+                class="skill-chip"
+                href="https://code.visualstudio.com/docs"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="VS Code — abrir documentação"
+              >
+                <img
+                  class="skill-chip__logo"
+                  src="assets/images/skills/vscode.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                VS Code
+              </a>
+            </li>
+            <li>
+              <a
+                class="skill-chip"
+                href="https://docs.docker.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Docker — abrir documentação"
+              >
+                <img
+                  class="skill-chip__logo"
+                  src="assets/images/skills/docker.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                Docker
+              </a>
+            </li>
+            <li>
+              <a
+                class="skill-chip"
+                href="https://www.apachefriends.org/faq_windows.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="XAMPP — abrir documentação"
+              >
+                <img
+                  class="skill-chip__logo"
+                  src="assets/images/skills/xampp.svg"
+                  alt=""
+                  width="20"
+                  height="20"
+                  loading="lazy"
+                />
+                XAMPP
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>

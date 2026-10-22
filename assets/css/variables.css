@@ -123,10 +123,9 @@
   --accent-border: color-mix(in srgb, var(--accent) 34%, transparent);
   --accent-glow: color-mix(in srgb, var(--accent) 26%, transparent);
 
-  /* Cores semânticas de status das skills */
-  --ok: #34d399; /* conheço */
-  --learn: #fbbf24; /* aprendendo */
-  --want: #60a5fa; /* quero aprender */
+  /* Cores semânticas de status (usadas nos cards de projeto) */
+  --ok: #34d399; /* concluído */
+  --learn: #fbbf24; /* em andamento */
 }
 
 /* ──────────────────────────────────────────────────

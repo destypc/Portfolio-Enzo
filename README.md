@@ -94,7 +94,7 @@ puro, como exercício de domínio dos fundamentos da web.
  ┃ ┣ 📜 sobre.html           # Sobre mim
  ┃ ┣ 📜 jornada.html         # Carrossel da jornada
  ┃ ┣ 📜 projetos.html        # Projetos
- ┃ ┣ 📜 skills.html          # Tecnologias por categoria
+ ┃ ┣ 📜 skills.html          # Stack principal + tecnologias por categoria
  ┃ ┗ 📜 contato.html         # Contato
  ┣ 📜 index.html             # Esqueleto: <head>, preloader e os data-include
  ┣ 📜 LICENSE
@@ -136,7 +136,7 @@ Depois acesse `http://localhost:5500`.
 | Projeto | Descrição | Stack |
 |---|---|---|
 | [**Global Time**](https://global-time.lzdev.com.br/) | Aplicação web para consultar horários, utilizar cronômetro e temporizador, com interface moderna, responsiva e intuitiva | HTML · CSS · JavaScript |
-| [**SprintMax**](https://sprint-max-crud-production.up.railway.app/pages/dashboard.php) | Sistema de vendas com CRUD completo e painel administrativo | PHP · SQL |
+| [**SprintMax**](https://github.com/destypc/Sprint-Max) | Sistema de vendas com CRUD completo e painel administrativo | PHP · SQL |
 
 ---
 
@@ -145,7 +145,7 @@ Depois acesse `http://localhost:5500`.
 **Enzo Nascimento** — Desenvolvedor Web Júnior · Jovem Aprendiz na Gazin Tech (Paraná, Brasil)
 
 [![GitHub](https://img.shields.io/badge/GitHub-@destypc-181717?style=flat&logo=github&logoColor=white)](https://github.com/destypc)
-[![WhatsApp](https://img.shields.io/badge/WhatsApp-Chamar-25D366?style=flat&logo=whatsapp&logoColor=white)](https://wa.me/554599857429)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-Chamar-25D366?style=flat&logo=whatsapp&logoColor=white)](https://wa.me/5545998507429)
 [![E-mail](https://img.shields.io/badge/E--mail-Enviar-EA4335?style=flat&logo=gmail&logoColor=white)](mailto:enzopontesdonascimento@gmail.com)
 
 ---

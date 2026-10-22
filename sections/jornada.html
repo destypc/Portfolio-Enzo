@@ -14,6 +14,11 @@
         </p>
       </div>
       <div class="journey__nav">
+        <!-- Contador da etapa ativa (atualizado pelo interactions.js) -->
+        <span class="journey__count" aria-hidden="true"
+          ><span class="journey__count-current" id="journeyCurrent">01</span>
+          / <span id="journeyTotal">14</span></span
+        >
         <button
           type="button"
           class="journey__btn"
@@ -36,6 +41,8 @@
     </header>
   </div>
 
+  <!-- Tecnologias usam os logos oficiais de assets/images/skills/ (os
+       mesmos da seção Skills); marcos sem marca usam Font Awesome. -->
   <ol
     class="journey__track"
     id="journeyTrack"
@@ -43,17 +50,16 @@
     aria-label="Etapas da minha jornada (role horizontalmente)"
   >
     <li class="journey-card reveal">
-      <span class="journey-card__year">2026</span>
       <span class="journey-card__icon"
-        ><i class="fa-regular fa-building"></i
+        ><i class="fa-regular fa-building" aria-hidden="true"></i
       ></span>
       <h3 class="journey-card__title" data-i18n="j1t">Entrei na Gazin</h3>
       <p class="journey-card__desc" data-i18n="j1d">
-        Entrei como jovem aprendiz na Gazin Tech
+        Entrei como jovem aprendiz na Gazin Tech.
       </p>
+      <span class="journey-card__year">2026</span>
     </li>
     <li class="journey-card reveal">
-      <span class="journey-card__year">2026</span>
       <span class="journey-card__icon"
         ><i class="fas fa-seedling" aria-hidden="true"></i
       ></span>
@@ -61,71 +67,95 @@
       <p class="journey-card__desc" data-i18n="j2d">
         Dei os primeiros passos no mundo da programação.
       </p>
+      <span class="journey-card__year">2026</span>
     </li>
     <li class="journey-card reveal">
-      <span class="journey-card__year">2026</span>
       <span class="journey-card__icon"
-        ><i class="fab fa-html5" aria-hidden="true"></i
-      ></span>
+        ><img
+          src="assets/images/skills/html5.svg"
+          alt=""
+          width="28"
+          height="28"
+      /></span>
       <h3 class="journey-card__title" data-i18n="j3t">
         Comecei com HTML
       </h3>
       <p class="journey-card__desc" data-i18n="j3d">
         Aprendi a estruturar páginas com HTML semântico.
       </p>
+      <span class="journey-card__year">2026</span>
     </li>
     <li class="journey-card reveal">
-      <span class="journey-card__year">2026</span>
       <span class="journey-card__icon"
-        ><i class="fab fa-css3-alt" aria-hidden="true"></i
-      ></span>
+        ><img
+          src="assets/images/skills/css3.svg"
+          alt=""
+          width="28"
+          height="28"
+      /></span>
       <h3 class="journey-card__title" data-i18n="j4t">Aprendi CSS</h3>
       <p class="journey-card__desc" data-i18n="j4d">
         Comecei a estilizar e a deixar tudo responsivo.
       </p>
+      <span class="journey-card__year">2026</span>
     </li>
     <li class="journey-card reveal">
-      <span class="journey-card__year">2026</span>
       <span class="journey-card__icon"
-        ><i class="fab fa-js" aria-hidden="true"></i
-      ></span>
+        ><img
+          src="assets/images/skills/javascript.svg"
+          alt=""
+          width="28"
+          height="28"
+      /></span>
       <h3 class="journey-card__title" data-i18n="j5t">JavaScript</h3>
       <p class="journey-card__desc" data-i18n="j5d">
         Dei vida às páginas com interatividade e lógica.
       </p>
+      <span class="journey-card__year">2026</span>
     </li>
     <li class="journey-card reveal">
-      <span class="journey-card__year">2026</span>
       <span class="journey-card__icon"
-        ><i class="fab fa-bootstrap" aria-hidden="true"></i
-      ></span>
+        ><img
+          src="assets/images/skills/bootstrap.svg"
+          alt=""
+          width="28"
+          height="28"
+      /></span>
       <h3 class="journey-card__title" data-i18n="j6t">Bootstrap</h3>
       <p class="journey-card__desc" data-i18n="j6d">
         Agilizei layouts com um framework CSS consagrado.
       </p>
+      <span class="journey-card__year">2026</span>
     </li>
     <li class="journey-card reveal">
-      <span class="journey-card__year">2026</span>
       <span class="journey-card__icon"
-        ><i class="fas fa-wind" aria-hidden="true"></i
-      ></span>
+        ><img
+          src="assets/images/skills/tailwindcss.svg"
+          alt=""
+          width="28"
+          height="28"
+      /></span>
       <h3 class="journey-card__title" data-i18n="j7t">Tailwind CSS</h3>
       <p class="journey-card__desc" data-i18n="j7d">
         Adotei o utility-first para estilizar mais rápido.
       </p>
+      <span class="journey-card__year">2026</span>
     </li>
     <li class="journey-card reveal">
-      <span class="journey-card__year">2026</span>
       <span class="journey-card__icon"
-        ><i class="fab fa-php" aria-hidden="true"></i
-      ></span>
+        ><img
+          src="assets/images/skills/php.svg"
+          alt=""
+          width="28"
+          height="28"
+      /></span>
       <h3 class="journey-card__title" data-i18n="j8t">PHP</h3>
       <p class="journey-card__desc" data-i18n="j8d">
         Comecei no back-end e na lógica do lado servidor.
       </p>
+      <span class="journey-card__year">2026</span>
     </li>
     <li class="journey-card reveal">
-      <span class="journey-card__year">2026</span>
       <span class="journey-card__icon"
         ><i class="fas fa-database" aria-hidden="true"></i
       ></span>
@@ -133,9 +163,9 @@
       <p class="journey-card__desc" data-i18n="j9d">
         Aprendi a modelar e consultar bancos de dados.
       </p>
+      <span class="journey-card__year">2026</span>
     </li>
     <li class="journey-card reveal">
-      <span class="journey-card__year">2026</span>
       <span class="journey-card__icon"
         ><i class="fas fa-table-list" aria-hidden="true"></i
       ></span>
@@ -143,39 +173,51 @@
       <p class="journey-card__desc" data-i18n="j10d">
         Uni PHP e SQL para criar, ler, editar e excluir dados.
       </p>
+      <span class="journey-card__year">2026</span>
     </li>
     <li class="journey-card reveal">
-      <span class="journey-card__year">2026</span>
       <span class="journey-card__icon"
-        ><i class="fab fa-react" aria-hidden="true"></i
-      ></span>
+        ><img
+          src="assets/images/skills/react.svg"
+          alt=""
+          width="28"
+          height="28"
+      /></span>
       <h3 class="journey-card__title" data-i18n="j11t">React</h3>
       <p class="journey-card__desc" data-i18n="j11d">
         Passei a criar interfaces com componentes reutilizáveis.
       </p>
+      <span class="journey-card__year">2026</span>
     </li>
     <li class="journey-card reveal">
-      <span class="journey-card__year">2026</span>
       <span class="journey-card__icon"
-        ><i class="fab fa-laravel" aria-hidden="true"></i
-      ></span>
+        ><img
+          src="assets/images/skills/laravel.svg"
+          alt=""
+          width="28"
+          height="28"
+      /></span>
       <h3 class="journey-card__title" data-i18n="j12t">Laravel</h3>
       <p class="journey-card__desc" data-i18n="j12d">
         Evoluí no back-end com um framework PHP robusto.
       </p>
+      <span class="journey-card__year">2026</span>
     </li>
     <li class="journey-card reveal">
-      <span class="journey-card__year">2026</span>
       <span class="journey-card__icon"
-        ><i class="fab fa-docker" aria-hidden="true"></i
-      ></span>
+        ><img
+          src="assets/images/skills/docker.svg"
+          alt=""
+          width="28"
+          height="28"
+      /></span>
       <h3 class="journey-card__title" data-i18n="j13t">Docker</h3>
       <p class="journey-card__desc" data-i18n="j13d">
         Aprendi a containerizar aplicações e padronizar ambientes.
       </p>
+      <span class="journey-card__year">2026</span>
     </li>
     <li class="journey-card journey-card--now reveal">
-      <span class="journey-card__year" data-i18n="j14year">Hoje</span>
       <span class="journey-card__icon journey-card__icon--pulse"
         ><i class="fas fa-rocket" aria-hidden="true"></i
       ></span>
@@ -185,6 +227,7 @@
       <p class="journey-card__desc" data-i18n="j14d">
         Estudando e construindo novos projetos todos os dias.
       </p>
+      <span class="journey-card__year" data-i18n="j14year">Hoje</span>
     </li>
   </ol>
 

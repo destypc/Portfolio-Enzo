@@ -46,7 +46,6 @@ export const translations = {
     "hero.btnProjects": "Ver Projetos",
     "hero.btnContact": "Contato",
     "hero.photoAlt": "Retrato de Enzo Nascimento",
-    "hero.chip": "Desenvolvedor Web",
     "hero.scrollCue": "Rolar para a próxima seção",
     "roles": [
       "Front-End Developer",
@@ -74,8 +73,6 @@ export const translations = {
     "about.card3s": "Onde tudo começou",
     "about.card4t": "Dev Web",
     "about.card4s": "Front &amp; Back",
-    "about.btnTalk": "Fale comigo",
-    "about.btnSkills": "Minhas skills",
 
     // Jornada
     "journey.eyebrow": "Evolução",
@@ -85,7 +82,7 @@ export const translations = {
     "journey.prev": "Etapa anterior",
     "journey.next": "Próxima etapa",
     "j1t": "Entrei na Gazin",
-    "j1d": "Entrei como jovem aprendiz na Gazin Tech",
+    "j1d": "Entrei como jovem aprendiz na Gazin Tech.",
     "j2t": "O início",
     "j2d": "Dei os primeiros passos no mundo da programação.",
     "j3t": "Comecei com HTML",
@@ -136,15 +133,17 @@ export const translations = {
     "skills.eyebrow": "Habilidades",
     "skills.title": "Minhas <span>tecnologias</span>",
     "skills.subtitle":
-      "Organizadas por categoria e por nível de familiaridade — o que já domino, o que estou aprendendo agora e o que quero aprender em seguida.",
-    "skills.know": "Conheço",
-    "skills.learning": "Estou aprendendo",
-    "skills.want": "Quero aprender",
+      "Organizadas pelo papel que cada uma cumpre no meu trabalho — com destaque para as que já usei em projetos publicados.",
+    "skills.coreT": "Stack principal",
+    "skills.coreS": "Tecnologias que já usei nos projetos publicados.",
+    "skills.coreLink": "Ver projetos",
     "skills.langsT": "Linguagens",
     "skills.langsS": "A base de tudo que construo",
-    "skills.fwT": "Frameworks &amp; Libs",
-    "skills.fwS": "Para construir mais rápido",
-    "skills.dbT": "Banco de Dados",
+    "skills.feT": "Front-end",
+    "skills.feS": "Interfaces e estilização",
+    "skills.beT": "Back-end",
+    "skills.beS": "Lógica do lado do servidor",
+    "skills.dbT": "Banco de dados",
     "skills.dbS": "Onde os dados vivem",
     "skills.toolsT": "Ferramentas",
     "skills.toolsS": "Meu dia a dia de trabalho",
@@ -154,16 +153,16 @@ export const translations = {
     "contact.title": "Vamos <span>conversar</span>",
     "contact.subtitle":
       "Quer falar comigo? Escolha o canal que preferir — costumo responder bem rápido!",
+    "contact.location": "Paraná, Brasil",
+    "contact.waDesc": "Conversa rápida e direta",
+    "contact.ghDesc": "Código dos meus projetos",
+    "contact.mailDesc": "Propostas e oportunidades",
     "contact.waCta": "Chamar agora",
     "contact.ghCta": "Ver perfil",
     "contact.mailCta": "Enviar e-mail",
 
     // Footer
-    "footer.tagline": "Feito com HTML, CSS e JavaScript.",
-    "footer.quick": "Links rápidos",
-    "footer.social": "Redes",
     "footer.copy": "Todos os direitos reservados.",
-    "footer.made": 'Feito com <i class="fas fa-heart" aria-hidden="true"></i> por Enzo Nascimento',
   },
 
   /* -------------------------------------------------- EN */
@@ -196,7 +195,6 @@ export const translations = {
     "hero.btnProjects": "View Projects",
     "hero.btnContact": "Contact",
     "hero.photoAlt": "Portrait of Enzo Nascimento",
-    "hero.chip": "Web Developer",
     "hero.scrollCue": "Scroll to the next section",
     "roles": [
       "Front-End Developer",
@@ -224,8 +222,6 @@ export const translations = {
     "about.card3s": "Where it all began",
     "about.card4t": "Web Dev",
     "about.card4s": "Front &amp; Back",
-    "about.btnTalk": "Get in touch",
-    "about.btnSkills": "My skills",
 
     // Journey
     "journey.eyebrow": "Evolution",
@@ -286,14 +282,16 @@ export const translations = {
     "skills.eyebrow": "Skills",
     "skills.title": "My <span>technologies</span>",
     "skills.subtitle":
-      "Organized by category and by how familiar I am with them — what I already know, what I'm learning now and what I want to learn next.",
-    "skills.know": "I know",
-    "skills.learning": "Learning",
-    "skills.want": "Want to learn",
+      "Organized by the role each one plays in my work — highlighting the ones I've already used in published projects.",
+    "skills.coreT": "Core stack",
+    "skills.coreS": "Technologies I've used in my published projects.",
+    "skills.coreLink": "See projects",
     "skills.langsT": "Languages",
     "skills.langsS": "The foundation of everything I build",
-    "skills.fwT": "Frameworks &amp; Libs",
-    "skills.fwS": "To build faster",
+    "skills.feT": "Front-end",
+    "skills.feS": "Interfaces and styling",
+    "skills.beT": "Back-end",
+    "skills.beS": "Server-side logic",
     "skills.dbT": "Databases",
     "skills.dbS": "Where the data lives",
     "skills.toolsT": "Tools",
@@ -304,16 +302,16 @@ export const translations = {
     "contact.title": "Let's <span>talk</span>",
     "contact.subtitle":
       "Want to reach out? Pick whichever channel you prefer — I usually reply pretty fast!",
+    "contact.location": "Paraná, Brazil",
+    "contact.waDesc": "Quick, direct chat",
+    "contact.ghDesc": "Code for my projects",
+    "contact.mailDesc": "Proposals and opportunities",
     "contact.waCta": "Message now",
     "contact.ghCta": "View profile",
     "contact.mailCta": "Send email",
 
     // Footer
-    "footer.tagline": "Built with HTML, CSS and JavaScript.",
-    "footer.quick": "Quick links",
-    "footer.social": "Social",
     "footer.copy": "All rights reserved.",
-    "footer.made": 'Made with <i class="fas fa-heart" aria-hidden="true"></i> by Enzo Nascimento',
   },
 
   /* -------------------------------------------------- ES */
@@ -346,7 +344,6 @@ export const translations = {
     "hero.btnProjects": "Ver Proyectos",
     "hero.btnContact": "Contacto",
     "hero.photoAlt": "Retrato de Enzo Nascimento",
-    "hero.chip": "Desarrollador Web",
     "hero.scrollCue": "Desplazarse a la siguiente sección",
     "roles": [
       "Front-End Developer",
@@ -374,8 +371,6 @@ export const translations = {
     "about.card3s": "Donde todo empezó",
     "about.card4t": "Dev Web",
     "about.card4s": "Front &amp; Back",
-    "about.btnTalk": "Habla conmigo",
-    "about.btnSkills": "Mis skills",
 
     // Trayectoria
     "journey.eyebrow": "Evolución",
@@ -436,15 +431,17 @@ export const translations = {
     "skills.eyebrow": "Habilidades",
     "skills.title": "Mis <span>tecnologías</span>",
     "skills.subtitle":
-      "Organizadas por categoría y por nivel de familiaridad — lo que ya domino, lo que estoy aprendiendo ahora y lo que quiero aprender después.",
-    "skills.know": "Conozco",
-    "skills.learning": "Estoy aprendiendo",
-    "skills.want": "Quiero aprender",
+      "Organizadas según el papel que cumple cada una en mi trabajo — destacando las que ya usé en proyectos publicados.",
+    "skills.coreT": "Stack principal",
+    "skills.coreS": "Tecnologías que ya usé en mis proyectos publicados.",
+    "skills.coreLink": "Ver proyectos",
     "skills.langsT": "Lenguajes",
     "skills.langsS": "La base de todo lo que construyo",
-    "skills.fwT": "Frameworks &amp; Libs",
-    "skills.fwS": "Para construir más rápido",
-    "skills.dbT": "Bases de Datos",
+    "skills.feT": "Front-end",
+    "skills.feS": "Interfaces y estilos",
+    "skills.beT": "Back-end",
+    "skills.beS": "Lógica del lado del servidor",
+    "skills.dbT": "Bases de datos",
     "skills.dbS": "Donde viven los datos",
     "skills.toolsT": "Herramientas",
     "skills.toolsS": "Mi día a día de trabajo",
@@ -454,16 +451,16 @@ export const translations = {
     "contact.title": "Vamos a <span>hablar</span>",
     "contact.subtitle":
       "¿Quieres hablar conmigo? Elige el canal que prefieras — ¡suelo responder bastante rápido!",
+    "contact.location": "Paraná, Brasil",
+    "contact.waDesc": "Conversación rápida y directa",
+    "contact.ghDesc": "Código de mis proyectos",
+    "contact.mailDesc": "Propuestas y oportunidades",
     "contact.waCta": "Escribir ahora",
     "contact.ghCta": "Ver perfil",
     "contact.mailCta": "Enviar correo",
 
     // Footer
-    "footer.tagline": "Hecho con HTML, CSS y JavaScript.",
-    "footer.quick": "Enlaces rápidos",
-    "footer.social": "Redes",
     "footer.copy": "Todos los derechos reservados.",
-    "footer.made": 'Hecho con <i class="fas fa-heart" aria-hidden="true"></i> por Enzo Nascimento',
   },
 };
 

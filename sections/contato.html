@@ -1,7 +1,7 @@
 <!-- ================= CONTATO ================= -->
 <section id="contato" class="section contato">
-  <div class="container">
-    <header class="section__header reveal">
+  <div class="container contato__grid">
+    <header class="contato__intro reveal reveal--left">
       <p class="eyebrow" data-i18n="contact.eyebrow">Contato</p>
       <h2 class="section__title" data-i18n-html="contact.title">
         Vamos <span>conversar</span>
@@ -10,65 +10,105 @@
         Quer falar comigo? Escolha o canal que preferir — costumo
         responder bem rápido!
       </p>
+      <p class="contato__location">
+        <i class="fas fa-location-dot" aria-hidden="true"></i>
+        <span data-i18n="contact.location">Paraná, Brasil</span>
+      </p>
     </header>
 
-    <div class="contact-cards reveal">
-      <a
-        href="https://wa.me/554599857429"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="contact-card contact-card--whatsapp spotlight"
-        data-tilt
-        data-tilt-max="6"
-      >
-        <span class="contact-card__icon"
-          ><i class="fab fa-whatsapp" aria-hidden="true"></i
-        ></span>
-        <span class="contact-card__label">WhatsApp</span>
-        <span class="contact-card__value">+55 (45) 99850-7429</span>
-        <span class="contact-card__cta"
-          ><span data-i18n="contact.waCta">Chamar agora</span>
-          <i class="fas fa-arrow-right" aria-hidden="true"></i
-        ></span>
-      </a>
-
-      <a
-        href="https://github.com/destypc"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="contact-card contact-card--github spotlight"
-        data-tilt
-        data-tilt-max="6"
-      >
-        <span class="contact-card__icon"
-          ><i class="fab fa-github" aria-hidden="true"></i
-        ></span>
-        <span class="contact-card__label">GitHub</span>
-        <span class="contact-card__value">@destypc</span>
-        <span class="contact-card__cta"
-          ><span data-i18n="contact.ghCta">Ver perfil</span>
-          <i class="fas fa-arrow-right" aria-hidden="true"></i
-        ></span>
-      </a>
-
-      <a
-        href="mailto:enzopontesdonascimento@gmail.com"
-        class="contact-card contact-card--email spotlight"
-        data-tilt
-        data-tilt-max="6"
-      >
-        <span class="contact-card__icon"
-          ><i class="fas fa-envelope" aria-hidden="true"></i
-        ></span>
-        <span class="contact-card__label">E-mail</span>
-        <span class="contact-card__value"
-          >enzopontesdonascimento@gmail.com</span
+    <!-- Canais: cada linha é um link inteiro, com o propósito do canal
+         ao lado do nome e o dado de contato logo abaixo. -->
+    <ul class="contact-list reveal reveal--right">
+      <li>
+        <a
+          href="https://wa.me/5545998507429"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-link contact-link--whatsapp"
         >
-        <span class="contact-card__cta"
-          ><span data-i18n="contact.mailCta">Enviar e-mail</span>
-          <i class="fas fa-arrow-right" aria-hidden="true"></i
-        ></span>
-      </a>
-    </div>
+          <span class="contact-link__icon"
+            ><i class="fab fa-whatsapp" aria-hidden="true"></i
+          ></span>
+          <span class="contact-link__body">
+            <span class="contact-link__label">
+              <span class="contact-link__name">WhatsApp</span>
+              <span class="contact-link__purpose" data-i18n="contact.waDesc"
+                >Conversa rápida e direta</span
+              >
+            </span>
+            <span class="contact-link__value">+55 (45) 99850-7429</span>
+          </span>
+          <span class="contact-link__cta">
+            <span class="contact-link__cta-text" data-i18n="contact.waCta"
+              >Chamar agora</span
+            >
+            <span class="contact-link__arrow" aria-hidden="true"
+              ><i class="fas fa-arrow-right"></i
+            ></span>
+          </span>
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="https://github.com/destypc"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-link contact-link--github"
+        >
+          <span class="contact-link__icon"
+            ><i class="fab fa-github" aria-hidden="true"></i
+          ></span>
+          <span class="contact-link__body">
+            <span class="contact-link__label">
+              <span class="contact-link__name">GitHub</span>
+              <span class="contact-link__purpose" data-i18n="contact.ghDesc"
+                >Código dos meus projetos</span
+              >
+            </span>
+            <span class="contact-link__value">@destypc</span>
+          </span>
+          <span class="contact-link__cta">
+            <span class="contact-link__cta-text" data-i18n="contact.ghCta"
+              >Ver perfil</span
+            >
+            <span class="contact-link__arrow" aria-hidden="true"
+              ><i class="fas fa-arrow-right"></i
+            ></span>
+          </span>
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="mailto:enzopontesdonascimento@gmail.com"
+          class="contact-link contact-link--email"
+        >
+          <span class="contact-link__icon"
+            ><i class="fas fa-envelope" aria-hidden="true"></i
+          ></span>
+          <span class="contact-link__body">
+            <span class="contact-link__label">
+              <span class="contact-link__name">E-mail</span>
+              <span class="contact-link__purpose" data-i18n="contact.mailDesc"
+                >Propostas e oportunidades</span
+              >
+            </span>
+            <!-- <wbr>: em telas estreitas, quebra depois do @ -->
+            <span class="contact-link__value"
+              >enzopontesdonascimento@<wbr />gmail.com</span
+            >
+          </span>
+          <span class="contact-link__cta">
+            <span class="contact-link__cta-text" data-i18n="contact.mailCta"
+              >Enviar e-mail</span
+            >
+            <span class="contact-link__arrow" aria-hidden="true"
+              ><i class="fas fa-arrow-right"></i
+            ></span>
+          </span>
+        </a>
+      </li>
+    </ul>
   </div>
 </section>

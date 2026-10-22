@@ -148,7 +148,12 @@ function initJourney() {
   const bar = document.getElementById("journeyBar");
   const fill = document.getElementById("journeyProgress");
   const thumb = document.getElementById("journeyThumb");
+  const current = document.getElementById("journeyCurrent");
+  const total = document.getElementById("journeyTotal");
   const cards = [...track.querySelectorAll(".journey-card")];
+
+  const pad = (n) => String(n).padStart(2, "0");
+  if (total) total.textContent = pad(cards.length);
 
   /** Distância de um "passo" = largura de um card + o gap. */
   const step = () => {
@@ -160,10 +165,13 @@ function initJourney() {
 
   const maxScroll = () => track.scrollWidth - track.clientWidth;
 
-  /** Marca visualmente a etapa mais próxima do início visível. */
-  const setActiveCard = () => {
-    const index = clamp(Math.round(track.scrollLeft / step()), 0, cards.length - 1);
+  /** Marca a etapa ativa proporcionalmente ao progresso do trilho:
+      começa na 1ª, termina na última e fica sempre entre os cards
+      visíveis (mesmo quando vários cabem na tela). */
+  const setActiveCard = (ratio) => {
+    const index = clamp(Math.round(ratio * (cards.length - 1)), 0, cards.length - 1);
     cards.forEach((card, i) => card.classList.toggle("is-active", i === index));
+    if (current) current.textContent = pad(index + 1);
   };
 
   const sync = () => {
@@ -176,7 +184,7 @@ function initJourney() {
     if (bar) bar.setAttribute("aria-valuenow", Math.round(pct));
     if (prevBtn) prevBtn.disabled = track.scrollLeft <= 2;
     if (nextBtn) nextBtn.disabled = track.scrollLeft >= max - 2;
-    setActiveCard();
+    setActiveCard(ratio);
   };
 
   const scrollByStep = (dir) =>
