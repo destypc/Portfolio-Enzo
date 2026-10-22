@@ -43,6 +43,7 @@ puro, como exercício de domínio dos fundamentos da web.
 - 🪄 **Microinterações** — inclinação 3D (_tilt_), _spotlight_ nos cards e parallax leve
 - 🛤️ **Jornada interativa** — carrossel horizontal com _slider_ arrastável
 - ⌨️ **Efeito de digitação** no _hero_
+- 🌊 **Fundo animado no _hero_** — ondas em preto e branco em WebGL (ruído Perlin com _domain warping_, pontilhado Bayer em 4 tons e vinheta), que se apagam perto do mouse, pausam fora da tela e têm _fallback_ em CSS
 - ♿ **Acessibilidade** — navegação por teclado, `aria-*`, _skip link_ e respeito a `prefers-reduced-motion`
 - ⚡ **Performance** — animações em `transform`/`opacity` com `requestAnimationFrame` mirando 60 FPS
 
@@ -57,6 +58,7 @@ puro, como exercício de domínio dos fundamentos da web.
 | **HTML5** | Estrutura semântica e SEO (Open Graph, meta tags) |
 | **CSS3** | Design tokens (`custom properties`), `color-mix()`, `clamp()`, Grid & Flexbox, animações |
 | **JavaScript (ES Modules)** | Tema, interações, animações e navegação — sem dependências |
+| **WebGL (GLSL)** | Shader do fundo animado do _hero_ |
 | **Font Awesome 6** | Ícones |
 | **Google Fonts** | Tipografia (Poppins) |
 
@@ -79,6 +81,7 @@ puro, como exercício de domínio dos fundamentos da web.
  ┃ ┃ ┣ 📜 i18n.js            # Traduções (PT / EN / ES)
  ┃ ┃ ┣ 📜 theme.js           # Tema claro/escuro e cor de destaque
  ┃ ┃ ┣ 📜 animations.js      # Reveal ao rolar + efeito de digitação
+ ┃ ┃ ┣ 📜 hero-bg.js         # Fundo animado do hero (shader WebGL)
  ┃ ┃ ┗ 📜 interactions.js    # Tilt 3D, spotlight, parallax e carrossel
  ┃ ┗ 📂 images
  ┃   ┣ 📂 skills             # Logos oficiais das tecnologias (SVG)

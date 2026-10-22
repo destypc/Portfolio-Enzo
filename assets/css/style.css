@@ -906,6 +906,53 @@ main,
   padding-top: var(--nav-h);
   overflow: hidden;
 }
+
+/* ── Fundo animado (ondas pontilhadas em preto e branco) ──
+   Camada atrás do conteúdo que não captura cliques. O
+   hero-bg.js desenha as ondas em WebGL no <canvas> e põe
+   .is-webgl; sem WebGL, fica o fallback abaixo: degradês
+   que derivam devagar + grão em SVG.                    */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* vem primeiro no HTML: o conteúdo pinta por cima */
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero__canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated; /* 1 pixel = 1 célula do pontilhado: ampliar sem borrar */
+  opacity: 0;
+  transition: opacity 1.6s var(--ease-out);
+}
+.hero__bg.is-webgl .hero__canvas {
+  opacity: 1;
+}
+.hero__bg:not(.is-webgl) {
+  -webkit-mask-image: linear-gradient(#000 78%, transparent);
+  mask-image: linear-gradient(#000 78%, transparent);
+}
+.hero__bg:not(.is-webgl)::before,
+.hero__bg:not(.is-webgl)::after {
+  content: "";
+  position: absolute;
+}
+.hero__bg:not(.is-webgl)::before {
+  inset: -12%;
+  background:
+    radial-gradient(38% 34% at 70% 44%, color-mix(in srgb, var(--text) 14%, transparent), transparent 70%),
+    radial-gradient(30% 26% at 56% 66%, color-mix(in srgb, var(--text) 8%, transparent), transparent 72%),
+    radial-gradient(34% 40% at 20% 28%, color-mix(in srgb, var(--text) 5%, transparent), transparent 70%);
+  animation: heroSmokeDrift 28s ease-in-out infinite alternate;
+}
+.hero__bg:not(.is-webgl)::after {
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  opacity: 0.07;
+}
+
 .hero__grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -2084,6 +2131,12 @@ main,
   }
   50% {
     transform: translate3d(4vw, -6vh, 0) scale(1.1);
+  }
+}
+/* Deriva do fallback do fundo do hero (sem WebGL) */
+@keyframes heroSmokeDrift {
+  to {
+    transform: translate3d(-4%, 3%, 0) scale(1.08) rotate(2deg);
   }
 }
 
