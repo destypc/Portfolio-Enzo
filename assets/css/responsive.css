@@ -40,9 +40,6 @@
     border-radius: var(--r-md);
     text-align: center;
   }
-  .core-tech__where {
-    text-align: center;
-  }
 }
 
 /* ─────────────────────────────────────────────────────
@@ -200,7 +197,7 @@
     border-top: 1px solid var(--border);
   }
   .core-tech {
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: auto minmax(0, 1fr);
     justify-items: stretch;
     gap: 0.85rem;
     padding: 0.7rem 0;
@@ -208,9 +205,6 @@
     border-bottom: 1px solid var(--border);
     border-radius: 0;
     text-align: left;
-  }
-  .core-tech__where {
-    text-align: right;
   }
   .skills-group {
     grid-template-columns: 1fr;
