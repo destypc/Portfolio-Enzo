@@ -1,8 +1,14 @@
 <!-- ================= HERO ================= -->
 <section id="home" class="hero">
-  <!-- Fundo animado: fumaça monocromática em WebGL (hero-bg.js) -->
-  <div class="hero__bg" aria-hidden="true">
-    <canvas class="hero__canvas"></canvas>
+  <!-- Fundo animado: ondas monocromáticas em WebGL (wave-bg.js),
+       com a luz um pouco acima da foto -->
+  <div
+    class="wave-bg"
+    data-focus=".hero__photo-wrap"
+    data-focus-lift="0.08"
+    aria-hidden="true"
+  >
+    <canvas class="wave-bg__canvas"></canvas>
   </div>
 
   <div class="container hero__grid">

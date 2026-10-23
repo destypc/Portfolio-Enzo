@@ -41,9 +41,9 @@ puro, como exercício de domínio dos fundamentos da web.
 - 🧭 **Navegação suave** com _scrollspy_ (destaque da seção atual) e barra de progresso de leitura
 - 🎞️ **Animações de entrada** ao rolar (fade + translate + blur, com _stagger_)
 - 🪄 **Microinterações** — inclinação 3D (_tilt_), _spotlight_ nos cards e parallax leve
-- 🛤️ **Jornada interativa** — carrossel horizontal com _slider_ arrastável
+- 🛤️ **Jornada interativa** — cursos e marcos em carrossel horizontal, com setas, _slider_ arrastável e arrasto do mouse
 - ⌨️ **Efeito de digitação** no _hero_
-- 🌊 **Fundo animado no _hero_** — ondas em preto e branco em WebGL (ruído Perlin com _domain warping_, pontilhado Bayer em 4 tons e vinheta), que se apagam perto do mouse, pausam fora da tela e têm _fallback_ em CSS
+- 🌊 **Fundo animado no _hero_ e no contato** — ondas em preto e branco em WebGL (ruído Perlin com _domain warping_, pontilhado Bayer em 4 tons e vinheta), que se apagam perto do mouse, pausam fora da tela e têm _fallback_ em CSS
 - ♿ **Acessibilidade** — navegação por teclado, `aria-*`, _skip link_ e respeito a `prefers-reduced-motion`
 - ⚡ **Performance** — animações em `transform`/`opacity` com `requestAnimationFrame` mirando 60 FPS
 
@@ -58,7 +58,7 @@ puro, como exercício de domínio dos fundamentos da web.
 | **HTML5** | Estrutura semântica e SEO (Open Graph, meta tags) |
 | **CSS3** | Design tokens (`custom properties`), `color-mix()`, `clamp()`, Grid & Flexbox, animações |
 | **JavaScript (ES Modules)** | Tema, interações, animações e navegação — sem dependências |
-| **WebGL (GLSL)** | Shader do fundo animado do _hero_ |
+| **WebGL (GLSL)** | Shader do fundo animado (_hero_ e contato) |
 | **Font Awesome 6** | Ícones |
 | **Google Fonts** | Tipografia (Poppins) |
 
@@ -81,7 +81,7 @@ puro, como exercício de domínio dos fundamentos da web.
  ┃ ┃ ┣ 📜 i18n.js            # Traduções (PT / EN / ES)
  ┃ ┃ ┣ 📜 theme.js           # Tema claro/escuro e cor de destaque
  ┃ ┃ ┣ 📜 animations.js      # Reveal ao rolar + efeito de digitação
- ┃ ┃ ┣ 📜 hero-bg.js         # Fundo animado do hero (shader WebGL)
+ ┃ ┃ ┣ 📜 wave-bg.js         # Fundo animado do hero e do contato (shader WebGL)
  ┃ ┃ ┗ 📜 interactions.js    # Tilt 3D, spotlight, parallax e carrossel
  ┃ ┗ 📂 images
  ┃   ┣ 📂 skills             # Logos oficiais das tecnologias (SVG)
@@ -92,7 +92,7 @@ puro, como exercício de domínio dos fundamentos da web.
  ┣ 📂 sections
  ┃ ┣ 📜 hero.html            # Início
  ┃ ┣ 📜 sobre.html           # Sobre mim
- ┃ ┣ 📜 jornada.html         # Carrossel da jornada
+ ┃ ┣ 📜 jornada.html         # Carrossel da jornada (cursos e marcos)
  ┃ ┣ 📜 projetos.html        # Projetos
  ┃ ┣ 📜 skills.html          # Stack principal + tecnologias por categoria
  ┃ ┗ 📜 contato.html         # Contato

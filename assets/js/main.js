@@ -9,7 +9,7 @@ import { initTheme } from "./theme.js";
 import { initI18n } from "./i18n.js";
 import { initAnimations } from "./animations.js";
 import { initInteractions } from "./interactions.js";
-import { initHeroBackground } from "./hero-bg.js";
+import { initWaveBackgrounds } from "./wave-bg.js";
 import { loadPartials } from "./include.js";
 
 // A navbar vem de components/navbar.html — só existe após loadPartials().
@@ -189,7 +189,7 @@ async function init() {
   initTheme();
   initAnimations();
   initInteractions();
-  initHeroBackground();
+  initWaveBackgrounds();
   initSmoothScroll();
   initScrollUI();
   initMobileMenu();

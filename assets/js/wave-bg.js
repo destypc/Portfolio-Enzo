@@ -1,12 +1,19 @@
 /* ======================================================
-   hero-bg.js — Fundo animado do hero (ondas pontilhadas)
-   Um shader WebGL desenha ondas com ruído Perlin "ridged"
-   (|ruído| cria os vincos escuros) e domain warping (o
-   ruído distorce a si mesmo), derivando na diagonal. O
-   resultado é posterizado em 4 tons com pontilhado Bayer
-   8×8 — o visual retrô da referência — e recebe uma vinheta
-   radial centrada na foto. As ondas se apagam perto do
-   cursor. Cores vêm do tema (--bg / --text): preto e branco.
+   wave-bg.js — Fundo animado (ondas pontilhadas)
+   Usado no hero e no contato: cada .wave-bg da página
+   ganha o seu canvas. Um shader WebGL desenha ondas com
+   ruído Perlin "ridged" (|ruído| cria os vincos escuros) e
+   domain warping (o ruído distorce a si mesmo), derivando
+   na diagonal. O resultado é posterizado em 4 tons com
+   pontilhado Bayer 8×8 — o visual retrô da referência — e
+   recebe uma vinheta radial centrada no elemento em foco
+   (a foto no hero, os canais no contato). As ondas se
+   apagam perto do cursor. Cores vêm do tema (--bg /
+   --text): preto e branco.
+   Configuração no HTML de cada .wave-bg:
+     data-focus="seletor"   elemento da seção que recebe a luz
+     data-focus-lift="0.08" luz um pouco acima dele (fração da altura)
+     data-fade-top / data-fade-bottom  dissolve nas bordas (idem)
    Leve por design: 1 pixel do canvas = 1 célula do
    pontilhado (ampliado sem suavizar), ~30 FPS, pausa fora
    da tela/aba e vira um quadro estático com reduced-motion.
@@ -36,8 +43,8 @@ const LOOK = {
   light: { intensity: 0.32 },
 };
 
-/* Luz um pouco acima do centro da foto (fração da altura do hero). */
-const FOCUS_LIFT = 0.08;
+/* Dissolve padrão nas bordas (fração da altura): só embaixo, como no hero. */
+const DEFAULT_FADE = { top: 0, bottom: 0.22 };
 
 /* Cores de segurança caso os tokens não sejam hex. */
 const FALLBACK_RGB = {
@@ -59,9 +66,11 @@ const FRAG = `
 precision highp float;
 
 uniform vec2 uRes;
+uniform float uUnit; // pixels do canvas por unidade do ruído (mesma escala em toda seção)
 uniform float uTime;
 uniform vec2 uFocus;
 uniform vec2 uMouse;
+uniform vec2 uFade; // dissolve nas bordas: x = base, y = topo
 uniform vec3 uBase;
 uniform vec3 uInk;
 uniform float uIntensity;
@@ -124,15 +133,14 @@ float bayer8(vec2 a) { return bayer4(0.5 * a) * 0.25 + bayer2(a); }
 
 void main() {
   vec2 uv = gl_FragCoord.xy / uRes;
-  float aspect = uRes.x / uRes.y;
-  vec2 point = (uv - 0.5) * vec2(aspect, 1.0);
+  vec2 point = (gl_FragCoord.xy - 0.5 * uRes) / uUnit;
 
   // Ondas: o ruído distorce a si mesmo enquanto deriva na diagonal
   vec2 drift = point + vec2(uTime * -0.035, uTime * -0.026);
   float field = fbm(point * 2.2 + fbm(drift * 2.4));
 
   // Cursor: as ondas se apagam suavemente ao redor do ponteiro
-  vec2 mouse = (uMouse - 0.5) * vec2(aspect, 1.0);
+  vec2 mouse = (uMouse - 0.5) * uRes / uUnit;
   field -= (1.0 - smoothstep(0.0, 0.52, distance(point, mouse))) * 0.22;
 
   // Pontilhado Bayer + posterização em 4 tons (1 pixel = 1 célula)
@@ -147,13 +155,16 @@ void main() {
   col = mix(col, uBase, shade);
   col = mix(uBase, col, 0.8); // camada a 80% sobre o fundo da página
 
-  // Dissolve na seção seguinte
-  float alpha = smoothstep(0.0, 0.22, uv.y);
+  // Dissolve nas seções vizinhas (max: smoothstep com bordas iguais é indefinido)
+  vec2 fade = max(uFade, 0.0001);
+  float alpha = smoothstep(0.0, fade.x, uv.y) * (1.0 - smoothstep(1.0 - fade.y, 1.0, uv.y));
   gl_FragColor = vec4(col * alpha, alpha);
 }
 `;
 
-const UNIFORMS = ["uRes", "uTime", "uFocus", "uMouse", "uBase", "uInk", "uIntensity"];
+const UNIFORMS = [
+  "uRes", "uUnit", "uTime", "uFocus", "uMouse", "uFade", "uBase", "uInk", "uIntensity",
+];
 
 /* ── Helpers WebGL ────────────────────────────────── */
 function compile(gl, type, source) {
@@ -161,7 +172,7 @@ function compile(gl, type, source) {
   gl.shaderSource(shader, source);
   gl.compileShader(shader);
   if (gl.getShaderParameter(shader, gl.COMPILE_STATUS)) return shader;
-  console.warn("[hero-bg]", gl.getShaderInfoLog(shader));
+  console.warn("[wave-bg]", gl.getShaderInfoLog(shader));
   gl.deleteShader(shader);
   return null;
 }
@@ -180,11 +191,11 @@ function createProgram(gl) {
   gl.deleteShader(fs);
 
   if (gl.getProgramParameter(program, gl.LINK_STATUS)) return program;
-  console.warn("[hero-bg]", gl.getProgramInfoLog(program));
+  console.warn("[wave-bg]", gl.getProgramInfoLog(program));
   return null;
 }
 
-/** Centro de el dentro do hero em 0–1 [x, y], origem embaixo.
+/** Centro de el dentro do fundo em 0–1 [x, y], origem embaixo.
     Usa offsets (ignoram transforms) para não pegar animações de entrada/tilt. */
 function centerWithin(host, el) {
   let x = 0;
@@ -208,9 +219,9 @@ function hexToRgb(value) {
 }
 
 /* ── Inicialização ────────────────────────────────── */
-export function initHeroBackground() {
-  const host = document.querySelector(".hero__bg");
-  const canvas = host?.querySelector(".hero__canvas");
+/** Liga um .wave-bg: canvas próprio, loop, tema, foco e mouse. */
+function initWave(host) {
+  const canvas = host.querySelector(".wave-bg__canvas");
   if (!canvas) return;
 
   const gl = canvas.getContext("webgl", {
@@ -227,9 +238,18 @@ export function initHeroBackground() {
   const highp = gl.getShaderPrecisionFormat(gl.FRAGMENT_SHADER, gl.HIGH_FLOAT);
   if (!highp || highp.precision === 0) return;
 
+  // Configuração do HTML (ver o cabeçalho do arquivo)
+  const { focus: focusSelector, focusLift, fadeTop, fadeBottom } = host.dataset;
+  const target = focusSelector ? host.parentElement?.querySelector(focusSelector) : null;
+  const lift = Number(focusLift) || 0;
+  const fade = [
+    Number(fadeBottom ?? DEFAULT_FADE.bottom),
+    Number(fadeTop ?? DEFAULT_FADE.top),
+  ];
+
   let u = null; // locations dos uniforms
   let time = 0;
-  const focus = [0.72, 0.58]; // recalculado pela posição da foto
+  const focus = [0.5, 0.5]; // recalculado pela posição do alvo
   const mouse = [...focus];
   const pointer = { x: 0, y: 0, moved: false };
 
@@ -252,14 +272,14 @@ export function initHeroBackground() {
     gl.uniform1f(u.uIntensity, LOOK[theme].intensity);
   };
 
-  /* Foco da luz: um pouco acima da foto (direita no desktop, topo no mobile). */
-  const photo = document.querySelector(".hero__photo-wrap");
+  /* Foco da luz: centro do alvo, deslocado para cima por data-focus-lift
+     (no hero, a foto: direita no desktop, topo no mobile). */
   const measure = () => {
     if (!u) return;
-    if (photo) {
-      const [x, y] = centerWithin(host, photo);
+    if (target) {
+      const [x, y] = centerWithin(host, target);
       focus[0] = x;
-      focus[1] = Math.min(y + FOCUS_LIFT, 1);
+      focus[1] = Math.min(y + lift, 1);
     }
     gl.uniform2f(u.uFocus, focus[0], focus[1]);
     // Sem mouse ainda: as ondas se apagam no foco, como na referência.
@@ -279,6 +299,9 @@ export function initHeroBackground() {
     canvas.height = Math.max(1, Math.round(h * scale));
     gl.viewport(0, 0, canvas.width, canvas.height);
     gl.uniform2f(u.uRes, canvas.width, canvas.height);
+    // Seções mais baixas que a tela medem o ruído pela altura da tela:
+    // as ondas ficam do mesmo tamanho das do hero.
+    gl.uniform1f(u.uUnit, Math.max(h, root.clientHeight) * scale);
     measure();
     draw(); // redimensionar limpa o canvas
   };
@@ -295,6 +318,7 @@ export function initHeroBackground() {
     gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
 
     u = Object.fromEntries(UNIFORMS.map((name) => [name, gl.getUniformLocation(program, name)]));
+    gl.uniform2fv(u.uFade, fade);
     applyTheme();
     resize();
     host.classList.add("is-webgl");
@@ -345,7 +369,7 @@ export function initHeroBackground() {
     cancelAnimationFrame(raf);
   };
 
-  // Só anima com o hero visível e a aba ativa.
+  // Só anima com a seção visível e a aba ativa.
   let inView = true;
   const sync = () => (inView && !document.hidden ? start() : stop());
 
@@ -357,7 +381,7 @@ export function initHeroBackground() {
 
   new ResizeObserver(resize).observe(host);
 
-  // Outro idioma pode mudar a altura do texto (e a posição da foto).
+  // Outro idioma pode mudar a altura do texto (e a posição do alvo).
   document.addEventListener("languagechange", () => {
     measure();
     draw();
@@ -393,4 +417,8 @@ export function initHeroBackground() {
   });
 
   sync();
+}
+
+export function initWaveBackgrounds() {
+  document.querySelectorAll(".wave-bg").forEach(initWave);
 }

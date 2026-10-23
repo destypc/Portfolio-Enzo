@@ -8,16 +8,21 @@
           Minha <span>jornada</span>
         </h2>
         <p class="section__subtitle" data-i18n-html="journey.subtitle">
-          A trilha que venho seguindo como desenvolvedor — do primeiro
+          Os cursos que fiz e os marcos do caminho — do primeiro
           <code>&lt;html&gt;</code> até os projetos que construo hoje.
-          Arraste para o lado para explorar.
+          Use as setas ou arraste para explorar.
         </p>
       </div>
     </header>
   </div>
 
-  <!-- Tecnologias usam os logos oficiais de assets/images/skills/ (os
-       mesmos da seção Skills); marcos sem marca usam Font Awesome. -->
+  <!-- Dois tipos de card com a mesma estrutura (ícone + tipo, título,
+       descrição e rodapé): "Curso" (journey-card--course), com o professor
+       no rodapé linkando o perfil dele na plataforma, e "Marco" (momentos
+       do caminho), com a área no lugar do professor. Tecnologias usam os
+       logos oficiais de assets/images/skills/ (os mesmos da seção Skills);
+       marcos sem marca usam Font Awesome. Os nomes dos cursos ficam no
+       idioma original. -->
   <ol
     class="journey__track"
     id="journeyTrack"
@@ -25,204 +30,495 @@
     aria-label="Etapas da minha jornada (role horizontalmente)"
   >
     <li class="journey-card reveal">
-      <span class="journey-card__icon"
-        ><i class="fa-regular fa-building" aria-hidden="true"></i
-      ></span>
+      <div class="journey-card__head">
+        <span class="journey-card__icon"
+          ><i class="fa-regular fa-building" aria-hidden="true"></i
+        ></span>
+        <span class="journey-card__tag"
+          ><i class="fas fa-flag" aria-hidden="true"></i
+          ><span data-i18n="journey.milestone">Marco</span></span
+        >
+      </div>
       <h3 class="journey-card__title" data-i18n="j1t">Entrei na Gazin</h3>
       <p class="journey-card__desc" data-i18n="j1d">
-        Entrei como jovem aprendiz na Gazin Tech.
+        Entrei como jovem aprendiz na Gazin Tech, onde passei a viver de perto a
+        rotina de um time de tecnologia.
       </p>
-      <span class="journey-card__year">2026</span>
+      <footer class="journey-card__footer">
+        <span class="journey-card__source">
+          <span class="journey-card__badge" aria-hidden="true"
+            ><i class="fas fa-briefcase"></i
+          ></span>
+          <span class="journey-card__source-name" data-i18n="area.career"
+            >Carreira</span
+          >
+        </span>
+        <span class="journey-card__year">2026</span>
+      </footer>
     </li>
     <li class="journey-card reveal">
-      <span class="journey-card__icon"
-        ><i class="fas fa-seedling" aria-hidden="true"></i
-      ></span>
+      <div class="journey-card__head">
+        <span class="journey-card__icon"
+          ><i class="fas fa-seedling" aria-hidden="true"></i
+        ></span>
+        <span class="journey-card__tag"
+          ><i class="fas fa-flag" aria-hidden="true"></i
+          ><span data-i18n="journey.milestone">Marco</span></span
+        >
+      </div>
       <h3 class="journey-card__title" data-i18n="j2t">O início</h3>
       <p class="journey-card__desc" data-i18n="j2d">
-        Dei os primeiros passos no mundo da programação.
+        Dei os primeiros passos na programação: lógica, curiosidade e a vontade
+        de entender como a web funciona.
       </p>
-      <span class="journey-card__year">2026</span>
+      <footer class="journey-card__footer">
+        <span class="journey-card__source">
+          <span class="journey-card__badge" aria-hidden="true"
+            ><i class="fas fa-code"></i
+          ></span>
+          <span class="journey-card__source-name" data-i18n="area.programming"
+            >Programação</span
+          >
+        </span>
+        <span class="journey-card__year">2026</span>
+      </footer>
     </li>
-    <li class="journey-card reveal">
-      <span class="journey-card__icon"
-        ><img
-          src="assets/images/skills/html5.svg"
-          alt=""
-          width="28"
-          height="28"
-      /></span>
-      <h3 class="journey-card__title" data-i18n="j3t">
-        Comecei com HTML
-      </h3>
+    <li class="journey-card journey-card--course reveal">
+      <div class="journey-card__head">
+        <span class="journey-card__icon journey-card__icon--duo"
+          ><img
+            src="assets/images/skills/html5.svg"
+            alt=""
+            width="28"
+            height="28"
+        /><img
+            src="assets/images/skills/css3.svg"
+            alt=""
+            width="28"
+            height="28"
+        /></span>
+        <span class="journey-card__tag"
+          ><i class="fas fa-graduation-cap" aria-hidden="true"></i
+          ><span data-i18n="journey.course">Curso</span></span
+        >
+      </div>
+      <h3 class="journey-card__title">HTML5 e CSS3</h3>
       <p class="journey-card__desc" data-i18n="j3d">
-        Aprendi a estruturar páginas com HTML semântico.
+        Aprendi a estruturar páginas com HTML semântico e a estilizá-las com
+        CSS.
       </p>
-      <span class="journey-card__year">2026</span>
+      <footer class="journey-card__footer">
+        <a
+          class="journey-card__source journey-card__source--link"
+          href="https://www.cursoemvideo.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          draggable="false"
+        >
+          <span class="journey-card__badge" aria-hidden="true">GG</span>
+          <span class="journey-card__source-text">
+            <span class="journey-card__source-name">Gustavo Guanabara</span>
+            <span class="journey-card__source-sub"
+              >Curso em Vídeo
+              <i
+                class="fas fa-arrow-up-right-from-square"
+                aria-hidden="true"
+              ></i
+            ></span>
+          </span>
+        </a>
+        <span class="journey-card__year">2026</span>
+      </footer>
     </li>
-    <li class="journey-card reveal">
-      <span class="journey-card__icon"
-        ><img
-          src="assets/images/skills/css3.svg"
-          alt=""
-          width="28"
-          height="28"
-      /></span>
-      <h3 class="journey-card__title" data-i18n="j4t">Aprendi CSS</h3>
+    <li class="journey-card journey-card--course reveal">
+      <div class="journey-card__head">
+        <span class="journey-card__icon"
+          ><img
+            src="assets/images/skills/javascript.svg"
+            alt=""
+            width="32"
+            height="32"
+        /></span>
+        <span class="journey-card__tag"
+          ><i class="fas fa-graduation-cap" aria-hidden="true"></i
+          ><span data-i18n="journey.course">Curso</span></span
+        >
+      </div>
+      <h3 class="journey-card__title">JavaScript Básico</h3>
       <p class="journey-card__desc" data-i18n="j4d">
-        Comecei a estilizar e a deixar tudo responsivo.
-      </p>
-      <span class="journey-card__year">2026</span>
-    </li>
-    <li class="journey-card reveal">
-      <span class="journey-card__icon"
-        ><img
-          src="assets/images/skills/javascript.svg"
-          alt=""
-          width="28"
-          height="28"
-      /></span>
-      <h3 class="journey-card__title" data-i18n="j5t">JavaScript</h3>
-      <p class="journey-card__desc" data-i18n="j5d">
         Dei vida às páginas com interatividade e lógica.
       </p>
-      <span class="journey-card__year">2026</span>
+      <footer class="journey-card__footer">
+        <a
+          class="journey-card__source journey-card__source--link"
+          href="https://www.cursoemvideo.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          draggable="false"
+        >
+          <span class="journey-card__badge" aria-hidden="true">GG</span>
+          <span class="journey-card__source-text">
+            <span class="journey-card__source-name">Gustavo Guanabara</span>
+            <span class="journey-card__source-sub"
+              >Curso em Vídeo
+              <i
+                class="fas fa-arrow-up-right-from-square"
+                aria-hidden="true"
+              ></i
+            ></span>
+          </span>
+        </a>
+        <span class="journey-card__year">2026</span>
+      </footer>
+    </li>
+    <li class="journey-card journey-card--course reveal">
+      <div class="journey-card__head">
+        <span class="journey-card__icon"
+          ><img
+            src="assets/images/skills/javascript.svg"
+            alt=""
+            width="32"
+            height="32"
+        /></span>
+        <span class="journey-card__tag"
+          ><i class="fas fa-graduation-cap" aria-hidden="true"></i
+          ><span data-i18n="journey.course">Curso</span></span
+        >
+      </div>
+      <h3 class="journey-card__title">JavaScript: Intermediário ao Avançado</h3>
+      <p class="journey-card__desc" data-i18n="j5d">
+        Aprofundei no JavaScript moderno e na orientação a objetos.
+      </p>
+      <footer class="journey-card__footer">
+        <a
+          class="journey-card__source journey-card__source--link"
+          href="https://www.udemy.com/user/jamiltondamasceno/"
+          target="_blank"
+          rel="noopener noreferrer"
+          draggable="false"
+        >
+          <span class="journey-card__badge" aria-hidden="true">JD</span>
+          <span class="journey-card__source-text">
+            <span class="journey-card__source-name">Jamilton Damasceno</span>
+            <span class="journey-card__source-sub"
+              >Udemy
+              <i
+                class="fas fa-arrow-up-right-from-square"
+                aria-hidden="true"
+              ></i
+            ></span>
+          </span>
+        </a>
+        <span class="journey-card__year">2026</span>
+      </footer>
     </li>
     <li class="journey-card reveal">
-      <span class="journey-card__icon"
-        ><img
-          src="assets/images/skills/bootstrap.svg"
-          alt=""
-          width="28"
-          height="28"
-      /></span>
-      <h3 class="journey-card__title" data-i18n="j6t">Bootstrap</h3>
+      <div class="journey-card__head">
+        <span class="journey-card__icon"
+          ><img
+            src="assets/images/skills/bootstrap.svg"
+            alt=""
+            width="32"
+            height="32"
+        /></span>
+        <span class="journey-card__tag"
+          ><i class="fas fa-flag" aria-hidden="true"></i
+          ><span data-i18n="journey.milestone">Marco</span></span
+        >
+      </div>
+      <h3 class="journey-card__title">Bootstrap</h3>
       <p class="journey-card__desc" data-i18n="j6d">
-        Agilizei layouts com um framework CSS consagrado.
+        Passei a montar layouts responsivos bem mais rápido com o grid e os
+        componentes prontos do Bootstrap.
       </p>
-      <span class="journey-card__year">2026</span>
+      <footer class="journey-card__footer">
+        <span class="journey-card__source">
+          <span class="journey-card__badge" aria-hidden="true"
+            ><i class="fas fa-display"></i
+          ></span>
+          <span class="journey-card__source-name">Front-end</span>
+        </span>
+        <span class="journey-card__year">2026</span>
+      </footer>
     </li>
     <li class="journey-card reveal">
-      <span class="journey-card__icon"
-        ><img
-          src="assets/images/skills/tailwindcss.svg"
-          alt=""
-          width="28"
-          height="28"
-      /></span>
-      <h3 class="journey-card__title" data-i18n="j7t">Tailwind CSS</h3>
+      <div class="journey-card__head">
+        <span class="journey-card__icon"
+          ><img
+            src="assets/images/skills/tailwindcss.svg"
+            alt=""
+            width="32"
+            height="32"
+        /></span>
+        <span class="journey-card__tag"
+          ><i class="fas fa-flag" aria-hidden="true"></i
+          ><span data-i18n="journey.milestone">Marco</span></span
+        >
+      </div>
+      <h3 class="journey-card__title">Tailwind CSS</h3>
       <p class="journey-card__desc" data-i18n="j7d">
-        Adotei o utility-first para estilizar mais rápido.
+        Adotei o utility-first: estilizo direto no HTML, com mais agilidade e um
+        visual consistente.
       </p>
-      <span class="journey-card__year">2026</span>
+      <footer class="journey-card__footer">
+        <span class="journey-card__source">
+          <span class="journey-card__badge" aria-hidden="true"
+            ><i class="fas fa-display"></i
+          ></span>
+          <span class="journey-card__source-name">Front-end</span>
+        </span>
+        <span class="journey-card__year">2026</span>
+      </footer>
     </li>
-    <li class="journey-card reveal">
-      <span class="journey-card__icon"
-        ><img
-          src="assets/images/skills/php.svg"
-          alt=""
-          width="28"
-          height="28"
-      /></span>
-      <h3 class="journey-card__title" data-i18n="j8t">PHP</h3>
+    <li class="journey-card journey-card--course reveal">
+      <div class="journey-card__head">
+        <span class="journey-card__icon journey-card__icon--duo"
+          ><img
+            src="assets/images/skills/php.svg"
+            alt=""
+            width="28"
+            height="28"
+        /><img
+            src="assets/images/skills/mysql.svg"
+            alt=""
+            class="journey-card__logo--dim"
+            width="28"
+            height="28"
+        /></span>
+        <span class="journey-card__tag"
+          ><i class="fas fa-graduation-cap" aria-hidden="true"></i
+          ><span data-i18n="journey.course">Curso</span></span
+        >
+      </div>
+      <h3 class="journey-card__title">PHP e MySQL: Do Zero ao Avançado</h3>
       <p class="journey-card__desc" data-i18n="j8d">
-        Comecei no back-end e na lógica do lado servidor.
+        Comecei no back-end com PHP e aprendi a modelar e consultar bancos de
+        dados.
       </p>
-      <span class="journey-card__year">2026</span>
+      <footer class="journey-card__footer">
+        <a
+          class="journey-card__source journey-card__source--link"
+          href="https://www.udemy.com/user/matheus-battisti/"
+          target="_blank"
+          rel="noopener noreferrer"
+          draggable="false"
+        >
+          <span class="journey-card__badge" aria-hidden="true">MB</span>
+          <span class="journey-card__source-text">
+            <span class="journey-card__source-name">Matheus Battisti</span>
+            <span class="journey-card__source-sub"
+              >Udemy
+              <i
+                class="fas fa-arrow-up-right-from-square"
+                aria-hidden="true"
+              ></i
+            ></span>
+          </span>
+        </a>
+        <span class="journey-card__year">2026</span>
+      </footer>
     </li>
     <li class="journey-card reveal">
-      <span class="journey-card__icon"
-        ><i class="fas fa-database" aria-hidden="true"></i
-      ></span>
-      <h3 class="journey-card__title" data-i18n="j9t">SQL</h3>
+      <div class="journey-card__head">
+        <span class="journey-card__icon"
+          ><i class="fas fa-table-list" aria-hidden="true"></i
+        ></span>
+        <span class="journey-card__tag"
+          ><i class="fas fa-flag" aria-hidden="true"></i
+          ><span data-i18n="journey.milestone">Marco</span></span
+        >
+      </div>
+      <h3 class="journey-card__title" data-i18n="j9t">Primeiro CRUD</h3>
       <p class="journey-card__desc" data-i18n="j9d">
-        Aprendi a modelar e consultar bancos de dados.
+        Juntei PHP e MySQL no meu primeiro sistema completo: cadastrar, listar,
+        editar e excluir dados de verdade.
       </p>
-      <span class="journey-card__year">2026</span>
+      <footer class="journey-card__footer">
+        <span class="journey-card__source">
+          <span class="journey-card__badge" aria-hidden="true"
+            ><i class="fas fa-server"></i
+          ></span>
+          <span class="journey-card__source-name">Back-end</span>
+        </span>
+        <span class="journey-card__year">2026</span>
+      </footer>
     </li>
     <li class="journey-card reveal">
-      <span class="journey-card__icon"
-        ><i class="fas fa-table-list" aria-hidden="true"></i
-      ></span>
-      <h3 class="journey-card__title" data-i18n="j10t">Primeiro CRUD</h3>
+      <div class="journey-card__head">
+        <span class="journey-card__icon"
+          ><img
+            src="assets/images/skills/react.svg"
+            alt=""
+            width="32"
+            height="32"
+        /></span>
+        <span class="journey-card__tag"
+          ><i class="fas fa-flag" aria-hidden="true"></i
+          ><span data-i18n="journey.milestone">Marco</span></span
+        >
+      </div>
+      <h3 class="journey-card__title">React</h3>
       <p class="journey-card__desc" data-i18n="j10d">
-        Uni PHP e SQL para criar, ler, editar e excluir dados.
+        Comecei a construir interfaces com componentes reutilizáveis, estado e
+        uma organização bem mais limpa.
       </p>
-      <span class="journey-card__year">2026</span>
+      <footer class="journey-card__footer">
+        <span class="journey-card__source">
+          <span class="journey-card__badge" aria-hidden="true"
+            ><i class="fas fa-display"></i
+          ></span>
+          <span class="journey-card__source-name">Front-end</span>
+        </span>
+        <span class="journey-card__year">2026</span>
+      </footer>
     </li>
-    <li class="journey-card reveal">
-      <span class="journey-card__icon"
-        ><img
-          src="assets/images/skills/react.svg"
-          alt=""
-          width="28"
-          height="28"
-      /></span>
-      <h3 class="journey-card__title" data-i18n="j11t">React</h3>
+    <li class="journey-card journey-card--course reveal">
+      <div class="journey-card__head">
+        <span class="journey-card__icon"
+          ><img
+            src="assets/images/skills/laravel.svg"
+            alt=""
+            width="32"
+            height="32"
+        /></span>
+        <span class="journey-card__tag"
+          ><i class="fas fa-graduation-cap" aria-hidden="true"></i
+          ><span data-i18n="journey.course">Curso</span></span
+        >
+      </div>
+      <h3 class="journey-card__title">Laravel</h3>
       <p class="journey-card__desc" data-i18n="j11d">
-        Passei a criar interfaces com componentes reutilizáveis.
-      </p>
-      <span class="journey-card__year">2026</span>
-    </li>
-    <li class="journey-card reveal">
-      <span class="journey-card__icon"
-        ><img
-          src="assets/images/skills/laravel.svg"
-          alt=""
-          width="28"
-          height="28"
-      /></span>
-      <h3 class="journey-card__title" data-i18n="j12t">Laravel</h3>
-      <p class="journey-card__desc" data-i18n="j12d">
         Evoluí no back-end com um framework PHP robusto.
       </p>
-      <span class="journey-card__year">2026</span>
+      <footer class="journey-card__footer">
+        <a
+          class="journey-card__source journey-card__source--link"
+          href="https://www.udemy.com/user/jorgetadeusantanasilva/"
+          target="_blank"
+          rel="noopener noreferrer"
+          draggable="false"
+        >
+          <span class="journey-card__badge" aria-hidden="true">JS</span>
+          <span class="journey-card__source-text">
+            <span class="journey-card__source-name">Jorge Sant'Ana</span>
+            <span class="journey-card__source-sub"
+              >Udemy
+              <i
+                class="fas fa-arrow-up-right-from-square"
+                aria-hidden="true"
+              ></i
+            ></span>
+          </span>
+        </a>
+        <span class="journey-card__year">2026</span>
+      </footer>
     </li>
-    <li class="journey-card reveal">
-      <span class="journey-card__icon"
-        ><img
-          src="assets/images/skills/docker.svg"
-          alt=""
-          width="28"
-          height="28"
-      /></span>
-      <h3 class="journey-card__title" data-i18n="j13t">Docker</h3>
-      <p class="journey-card__desc" data-i18n="j13d">
+    <li class="journey-card journey-card--course reveal">
+      <div class="journey-card__head">
+        <span class="journey-card__icon"
+          ><img
+            src="assets/images/skills/docker.svg"
+            alt=""
+            width="32"
+            height="32"
+        /></span>
+        <span class="journey-card__tag"
+          ><i class="fas fa-graduation-cap" aria-hidden="true"></i
+          ><span data-i18n="journey.course">Curso</span></span
+        >
+      </div>
+      <h3 class="journey-card__title">Docker</h3>
+      <p class="journey-card__desc" data-i18n="j12d">
         Aprendi a containerizar aplicações e padronizar ambientes.
       </p>
-      <span class="journey-card__year">2026</span>
+      <footer class="journey-card__footer">
+        <a
+          class="journey-card__source journey-card__source--link"
+          href="https://www.udemy.com/user/matheus-battisti/"
+          target="_blank"
+          rel="noopener noreferrer"
+          draggable="false"
+        >
+          <span class="journey-card__badge" aria-hidden="true">MB</span>
+          <span class="journey-card__source-text">
+            <span class="journey-card__source-name">Matheus Battisti</span>
+            <span class="journey-card__source-sub"
+              >Udemy
+              <i
+                class="fas fa-arrow-up-right-from-square"
+                aria-hidden="true"
+              ></i
+            ></span>
+          </span>
+        </a>
+        <span class="journey-card__year">2026</span>
+      </footer>
     </li>
     <li class="journey-card journey-card--now reveal">
-      <span class="journey-card__icon journey-card__icon--pulse"
-        ><i class="fas fa-rocket" aria-hidden="true"></i
-      ></span>
-      <h3 class="journey-card__title" data-i18n="j14t">
-        Continuo evoluindo
-      </h3>
-      <p class="journey-card__desc" data-i18n="j14d">
-        Estudando e construindo novos projetos todos os dias.
+      <div class="journey-card__head">
+        <span class="journey-card__icon journey-card__icon--pulse"
+          ><i class="fas fa-rocket" aria-hidden="true"></i
+        ></span>
+        <span class="journey-card__tag"
+          ><i class="fas fa-arrow-trend-up" aria-hidden="true"></i
+          ><span data-i18n="journey.ongoing">Em andamento</span></span
+        >
+      </div>
+      <h3 class="journey-card__title" data-i18n="j13t">Continuo evoluindo</h3>
+      <p class="journey-card__desc" data-i18n="j13d">
+        Sigo estudando e colocando tudo em prática em novos projetos — sempre
+        com a próxima tecnologia na mira.
       </p>
-      <span class="journey-card__year" data-i18n="j14year">Hoje</span>
+      <footer class="journey-card__footer">
+        <span class="journey-card__source">
+          <span class="journey-card__badge" aria-hidden="true"
+            ><i class="fas fa-layer-group"></i
+          ></span>
+          <span class="journey-card__source-name">Full stack</span>
+        </span>
+        <span class="journey-card__year" data-i18n="j13year">Hoje</span>
+      </footer>
     </li>
   </ol>
 
+  <!-- Navegação: setas (um card por clique) nas pontas do slider -->
   <div class="container">
-    <div
-      class="journey__progress"
-      id="journeyBar"
-      role="slider"
-      tabindex="0"
-      aria-label="Progresso da jornada — arraste ou clique para navegar"
-      aria-valuemin="0"
-      aria-valuemax="100"
-      aria-valuenow="0"
-    >
-      <span class="journey__progress-fill" id="journeyProgress"></span>
-      <span
-        class="journey__progress-thumb"
-        id="journeyThumb"
-        aria-hidden="true"
-      ></span>
+    <div class="journey__controls">
+      <button
+        type="button"
+        class="journey__btn"
+        data-journey="prev"
+        aria-label="Etapa anterior"
+        data-i18n-aria="journey.prev"
+      >
+        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+      </button>
+      <div
+        class="journey__progress"
+        id="journeyBar"
+        role="slider"
+        tabindex="0"
+        aria-label="Progresso da jornada — arraste ou clique para navegar"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0"
+      >
+        <span class="journey__progress-fill" id="journeyProgress"></span>
+        <span
+          class="journey__progress-thumb"
+          id="journeyThumb"
+          aria-hidden="true"
+        ></span>
+      </div>
+      <button
+        type="button"
+        class="journey__btn"
+        data-journey="next"
+        aria-label="Próxima etapa"
+        data-i18n-aria="journey.next"
+      >
+        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+      </button>
     </div>
   </div>
 </section>

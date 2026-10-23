@@ -263,8 +263,11 @@ function initJourney() {
 
   track.addEventListener("pointerdown", (e) => {
     if (e.pointerType === "touch") return; // o toque já rola nativamente
-    dragging = true;
     moved = false;
+    // Links dos cards (perfil do professor): a captura do ponteiro
+    // desviaria o clique para o trilho.
+    if (e.target.closest("a")) return;
+    dragging = true;
     startX = e.clientX;
     startScroll = track.scrollLeft;
     track.setPointerCapture(e.pointerId);
